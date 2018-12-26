@@ -1,5 +1,7 @@
 # Clemson Math Analysis Prelim Solutions
 
+Email me awgreen@clemson.edu if you want to contribute, so I can add you on GitHub.
+
 ## Goals
 The first goal is to gather together all the solutions. So, if you have some, go ahead and edit the already existing `analysis_sol_mmyy.tex` files to add them. It is totally fine to have multiple answers to a problem (especially if they are different). If you want to put your name with your solutions, go for it.
 
