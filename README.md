@@ -4,10 +4,18 @@ Each exam's solutions are stored in the `.tex` file with their date. The only fi
 
 ## Referencing
 It may the case that an problem is repeated or a solution is super similar to another. If so, the completed solution should be labeled by
-```\phantomsection\label{q:<problem>}```
+```
+\phantomsection\label{q:<problem>}
+```
 and then referenced as
-```See \hyperref[q:<problem>]{<Summer/Winter> <Year> \#<Number>}```
+```
+See \hyperref[q:<problem>]{<Summer/Winter> <Year> \#<Number>}
+```
 For example, if Summer 09 #4 has the solution which is written in Winter 14 #8, on Winter 14 #8, place the label
-```\phantomsection\label{q:w14-8}```
+```
+\phantomsection\label{q:w14-8}
+```
 and the entry in Summer 09 will be
-```\item[4.] See \hyperref[q:w14-8]{Winter 14 \#8}```
+```
+\item[4.] See \hyperref[q:w14-8]{Winter 14 \#8}
+```
