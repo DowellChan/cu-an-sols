@@ -1,0 +1,44 @@
+\begin{itemize}
+\item[1.]
+	\begin{itemize}
+		\item[(a)] \begin{proof} If $E$ is bounded, $E$ is pre-compact since $\bbr$ is finite (one) dimensional. If $f(E)$ is unbounded, then there exists $\{x_n\} \subseteq E$ such that $f(x_n) \to \infty$. Since $E$ is precompact $\{x_n\}$ has a convergent subsequence, say $\{x_{n_k}\}$ with limit $x \in \bbr$. Then, since $f$ is continuous,
+		\[ f(x) = \lim_{k \to \infty} f(x_{n_k}) = \infty \]
+	However, since $f$ maps $\bbr$ to $\bbr$, $f(x)$ cannot be $\infty$. 
+		\end{proof}
+		
+		\item[(b)]
+		\begin{proof}
+		Since $f$ is uniformly continuous, there exists $\delta >0$ such that whenever $|x-y|<\delta$, 
+		\[ |f(x)-f(y)| <1 \]
+		Since $E$  bounded, it can be covered by finitely many balls of radius $\delta$, say $\{B(x_i,\delta)\}_{i=1}^N$. Then,
+		\[ f(E) = \cup_{i=1}^N f(B(x_i,\delta)) \]
+		Fix $i$, for any $f(y) \in f(B(x_i,\delta))$,
+			\[ |f(y)-f(x_i)| \le 1 \]
+		So $f(B(x_i,\delta))$ is bounded. Then, a finite union of bounded sets is also bounded.
+		\end{proof}
+	\end{itemize}
+Counterexample: $E=(0,1)$ and $f(x)=1/x$. $f(E) = (1,\infty)$.
+
+\item[3.]
+	\begin{itemize}
+		\item[(a)]\begin{proof} Recall the Bessel inequality for any orthonormal set $\{e_n\}$ in an inner product space, $X$. For and $f \in X$,
+		\[ \sum |\lip f,e_n\rip|^2 \le \|f\|^2 \]
+		In particular, $\lip f,e_n\rip \to 0$ as $n \to \infty$ for any $f \in X$. Now, since 
+		\[ \left\{ \dfrac{1}{\sqrt{2\pi}},\dfrac{\cos(n x)}{\sqrt{2\pi}},\dfrac{\sin(n x)}{\sqrt{2\pi}}\right\} \]
+		form an orthonormal set in $C[-\pi,\pi]$, we have
+		\[ \int_{-\pi}^\pi \sin(2 n x) f(x) \, dx \to 0 \quad \mbox{as } n \to \infty\]
+		for any $f \in C[-\pi,\pi]$. Then,
+		\[ \int_{-\pi}^\pi \sin^2(nx) f(x) \,dx = \dfrac 12 \int_{-\pi}^\pi f(x) \, dx - \dfrac 12 \int_{-\pi}^\pi \sin(2 n x)f(x) \, dx \to \dfrac 12 \int_{-\pi}^\pi f(x) \, dx \]
+		\end{proof}
+
+		\item[(b)]
+		\begin{proof}For any $f \in C[-\pi,\pi]$, $n \in \bbn$,
+		\begin{align*}
+			\left| \int_{-\pi}^\pi \dfrac{x^n}{\pi^n} f(x)\, dx \right|^2 &\le \int_{-\pi}^\pi \dfrac{x^{2n}}{\pi^{2n}} \, dx \int_{-\pi}^\pi |f(x)|^2 \, dx \\
+			&= \dfrac{\pi^{2n+1}-(-\pi)^{2n+1}}{(2n+1)\pi^{2n}} \|f\|_{L^2}^2 \\
+			&= \dfrac{2\pi}{2n+1} \|f\|_{L^2}^2
+		\end{align*}
+		which goes to $0$ as $n \to \infty$.
+		\end{proof}
+	\end{itemize}
+\end{itemize}

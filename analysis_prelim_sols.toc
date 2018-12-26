@@ -1,0 +1,14 @@
+\contentsline {section}{Winter 2010}{2}{section*.2}
+\contentsline {section}{Summer 2010}{4}{section*.3}
+\contentsline {section}{Winter 2012}{6}{section*.4}
+\contentsline {section}{Summer 2012}{7}{section*.5}
+\contentsline {section}{Winter 2013}{8}{section*.6}
+\contentsline {section}{Summer 2013}{9}{section*.7}
+\contentsline {section}{Winter 2014}{14}{section*.11}
+\contentsline {section}{Summer 2014}{15}{section*.12}
+\contentsline {section}{Winter 2015}{16}{section*.13}
+\contentsline {section}{Summer 2015}{20}{section*.16}
+\contentsline {section}{Winter 2016}{25}{section*.17}
+\contentsline {section}{Summer 2016}{29}{section*.18}
+\contentsline {section}{Winter 2017}{33}{section*.19}
+\contentsline {section}{Summer 2017}{38}{section*.20}

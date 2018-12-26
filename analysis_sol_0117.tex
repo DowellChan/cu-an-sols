@@ -1,0 +1,138 @@
+\begin{enumerate}
+
+\item Notice that
+	\[ \sum \dfrac{\sin(nx)}{n} \]
+is the Fourier series of the function $x \mapsto \dfrac{\pi -x}{2}$. Indeed,
+	\[ \dfrac{\pi}{2}\int_{-\pi}^\pi \sin(nx) \, dx - \dfrac 12 \int_{-\pi}^\pi x \sin(nx) \, dx = 
+	%-\dfrac{\pi}{2n}\cos(nx)\Bigr|_{x=-\pi}^\pi + 
+	\dfrac{x \cos(nx)}{2n}\Bigr|_{x=-\pi}^\pi - \dfrac 1{2n} \int_{-\pi}^\pi  \cos(nx) \, dx = \]
+
+\item \begin{enumerate}[(a)]
+	\item \begin{proof}
+		\begin{enumerate}[(i)]
+			\item First, notice that
+				\[ -M|x-y| \le f(x)-f(y) \le M|x-y| \]
+			therefore $|f(x)| \le |f(y)| + M|x-y|$ for all $x,y \in \bbr$. Therefore,
+				\begin{align*} 0 &\le d(f,g) = \sum_{n=1}^\infty 2^{-n} \sup_{x \in [-n,n]} |f(x)-g(x)| \\
+				&\le \sum_{n=1}^\infty 2^{-n} \sup_{x \in [-n,n]} |f(x)|+|g(x)| \\
+				&\le \sum_{n=1}^\infty 2^{-n} \sup_{x \in [-n,n]} |f(0)|+M|x|+|g(0)|+M|x| \\
+				&\le \sum_{n=1}^\infty \dfrac{f(0)+g(0)+2Mn}{2^n} < \infty
+				\end{align*}
+			so $d(f,g)$ is well-defined and non-negative.
+			\item Clearly $d(f,f) =0$. Assume $d(f,g)=0$. Then $\sup_{x \in [-n,n]}|f(x)-g(x)|=0$ for all $n$ thus $f(x)=g(x)$ on $\bbr$.
+			\item Clearly $d(f,g)=d(g,f)$.
+			\item \begin{align*} d(f,g) &= \sum_{n=1}^\infty 2^{-n} \sup_{x\in[-n,n]} |f(x)-g(x)| \\
+				&\le \sum_{n=1}^\infty 2^{-n} \sup_{x\in[-n,n]} \left(|f(x)-h(x)|+|h(x)-g(x)| \right) \\
+				&\le \sum_{n=1}^\infty 2^{-n} \left( \sup_{x\in[-n,n]} |f(x)-h(x)| + \sup_{x\in[-n,n]} |h(x)-g(x)| \right) \\
+				&= \sum_{n=1}^\infty 2^{-n} \sup_{x\in[-n,n]} |f(x)-h(x)|  + \sum_{n=1}^\infty 2^{-n} \sup_{x\in[-n,n]} |h(x)-g(x)| \\
+				&= d(f,h) + d(h,g)
+			\end{align*}
+		\end{enumerate}
+			
+	\end{proof}
+	\pagebreak
+	\item \begin{proof}
+		Let $\{f_k\}_{k=1}^\infty \subseteq \call$ be Cauchy in $d$. Fix $x \in \bbr$. Then, $x\in[-N,N]$ for some $N \in \bbn$. For any $k,\ell \in \bbn$,
+			\[ |f_k(x)-f_\ell(x)| \le 2^N 2^{-N} \sup_{x \in [-N,N]}|f_k(x)-f_\ell(x)| \le 2^N d(f_k,f_\ell) \to 0 \]
+		as $k,\ell \to \infty$. Therefore $\{f_k(x)\}_{k=1}^\infty \subseteq \bbr$ is Cauchy for each $x$ and therefore convergent since $\bbr$ is complete. Then define
+		\[ f(x):= \lim_{k \to \infty} f_k(x) \]
+		First, we show $f \in \call$. Fix $x,y\in \bbr$. For $\epsilon>0$ there exists $n_1,n_2 \in \bbn$ such that
+		\[ |f_k(x)-f(x)| <\epsilon \quad \quad |f_\ell(y)-f(y)| <\epsilon \quad \forall \, k > n_1 \, \ell > n_2 \]
+		Then, for $n=\max\{n_1,n_2\}$,
+		\[ |f(x)-f(y)| \le |f(x)-f_n(x)| + |f_n(x)-f_n(y)| + |f_n(y)-f(y)| < 2\epsilon + M|x-y| \]
+		so $|f(x)-f(y)| \le M|x-y|$ and $f \in \call$.
+		Now we will show $f_k \to f$ in $d$. Let $\epsilon >0$. Since $\{f_k\}$ is Cauchy in $d$. $\{d(f_k,0)\}$ is uniformly bounded, i.e. there exist $C>0$ such that $d(f_k,0) \le C$ for all $k$. Indeed, there exists $N$ such that $d(f_k,f_j) < 1$ for $j,k \ge N$. Thus,
+	\[ d(f_k,0) \le d(f_k,f_N) + d(f_N,0) \le 1+d(f_N,0) \]
+	So $d(f_k.0) \le \max_{j=1,\ldots,N}\{1+d(f_j,0)\}$ for all $k$. Thus,
+	\[ d(f_k,f) \le C + d(f,0) \]
+	for all $k$ so there exists $N$ such that 
+		\[ \sum_{n=N+1}^\infty 2^{-n} \sup_{x \in [-n,n]} |f_k(x)-f(x)| < \epsilon/2\]
+	for all $k$. Moreover, since $f_k(x) \to f(x)$ for each $x \in [-N,N]$, $f_k \to f$ uniformly on $[-N,N]$ since it is closed and bounded. Therefore we can take $k$ large enough so that
+		\[ \sum_{n=1}^N2^{-n} \sup_{x \in [-n,n]} |f_k(x)-f(x)| < N2^{-N} \sup_{x \in [-N,N]} |f_k(x)-f(x)| < \epsilon /2 \]
+	Then,
+		\[ d(f_k,f) = \sum_{n=1}^N + \sum_{n=N+1}^\infty 2^{-n} \sup_{x \in [-n,n]} |f_k(x)-f(x)| \le \epsilon \]
+	for $k$ large enough. 
+	\end{proof}
+\end{enumerate}
+
+
+\item \begin{proof} Let $f \in C^1[0,1]$.
+	\[ |\varphi_0(f)| = |f'(0)| \le \sup_{x \in [0,1]} |f'(x)| \le ||f|| \]
+So $||\varphi_0|| \le 1$. We will show $||\varphi_0||=1$. Consider the sequence defined
+		\[ f_n(x):= \dfrac{\sin(nx)}{n} \]
+Notice $||f_n|| = 1/n+1$ and $|\varphi_0(f_n)| = 1$. Thus,
+	\[ 1\ge||\varphi_0||=\sup_{f \ne 0} \dfrac{|\varphi_0(f)|}{||f||} \ge \sup_{n \in \bbn}\dfrac{|\varphi_0(f_n)|}{||f_n||} = \sup_{n \in \bbn}\dfrac{1}{1+1/n} = 1 \]
+so $||\varphi_0||=1$.
+	\end{proof}
+
+
+
+\item \begin{enumerate}
+	\item \begin{proof}
+	Let $x \in \ell^2$. Then for $\epsilon >0$ there exists $N \in \bbn$ such that
+		\[ \sum_{k=N+1}^\infty |x_k|^2 < \epsilon \]
+	Then, for $y=(x_1,x_2,\ldots,x_N,0,0,\ldots) \in Y$,
+		\[ ||x-y||_2^2 = \sum_{k=1}^\infty |x_k-y_k|^2 = \sum_{k=N+1}^\infty |x_k-0|^2 < \epsilon \]
+	so $Y$ is dense in $\ell^2$.
+	\end{proof}
+	\item \begin{proof}
+	By Cauchy-Schwarz,
+		\[ \left| \sum_{k=1}^n x_k \right| \le \left( \sum_{k=1}^n |1|^2 \right)^{1/2} \left( \sum_{k=1}^n |x_k|^2\right)^{1/2} = \sqrt{n}\left( \sum_{k=1}^n |x_k|^2\right)^{1/2} \]
+	Moreover, if $x \in \ell^2$, then $\sum_{k=1}^\infty |x_k|^2$ converges so we can bound the final term by $||x||_2$.
+	\end{proof}
+
+	\item \begin{proof}
+		Let $x \in \ell^2$, $\epsilon>0$. By part (a) there exists $y \in Y$ such that $\| x-y\|_2 \le \epsilon/2$. Then,
+			\[ \lim_{n \to \infty} \dfrac{1}{\sqrt{n}} \left|\sum y_n\right| =0\]
+		since the second term is bounded and the first is decreasing to $0$. So, there exists $N$ such that
+			\[ \dfrac{1}{\sqrt{n}} \left|\sum y_n\right| <\epsilon/2 \quad \mbox{ for } n \ge N \]
+		By triangle inequality for $|\cdot |$ and part(b),
+			\[ \dfrac{1}{\sqrt{n}} \left|\sum x_n \right| \le \dfrac{1}{\sqrt{n}} \left|\sum x_n-y_n \right| + \dfrac{1}{\sqrt{n}} \left|\sum y_n \right| < \|x-y\|_2 + \epsilon/2 < \epsilon \]
+		for $n \ge N$ so 
+			\[ \lim_{n \to \infty} \dfrac{1}{\sqrt{n}} \left|\sum x_n \right| =0\]
+	\end{proof}
+\end{enumerate}
+
+
+\item \begin{proof}
+First notice that 
+	\[ 0 \le \int_0^\infty \dfrac{x}{1+x^3} \, dx = \int_0^1 + \int_1^\infty \dfrac{x}{1+x^3} \, dx \le \int_0^1 1 \, dx + \int_1^\infty \dfrac{1}{x^2} \, dx < \infty \]
+Then, notice that $\tfrac{x}{1+x^n} \le \tfrac{x}{1+x^{n+1}}$ for $x \in (0,1)$. Therefore, by monotone convergence theorem, 
+	\[ \lim_{n\to \infty} \int_0^1 \dfrac{x}{1+x^n} \, dx = 0 \]
+since $x/(1+x^n) \to 0$ pointwise on $(0,1)$. Moreover, 
+	\[ \int_1^\infty \dfrac{x}{1+x^n} \, dx \]
+is monotone decreasing and bounded below by zero therefore
+	\[ \lim_{n \to \infty} \int_0^\infty \dfrac{x}{1+x^n} \, dx = \lim_{n \to \infty} \int_0^1 + \int_1^\infty \dfrac{x}{1+x^n} \, dx\]
+exists. Moreover,
+	\[ \lim_{n\to \infty} \int_0^\infty \dfrac{x}{1+x^n} \, dx = \int_1^\infty \lim_{n\to\infty}\dfrac{x}{1+x^n} \, dx = 0 \]
+by the Lebesgue dominated convergence theorem since
+	\[ \dfrac{x}{1+x^n} \le \dfrac{x}{x^n} = x^{1-n} \]
+which is integrable on $(1,\infty)$ for $n \ge 3$.
+\end{proof}
+
+\item \begin{itemize}
+	\item[(a)] \begin{proof}
+	Set $f(x) = \mathbf{1}_{\liminf_n A_n}$.
+	\begin{itemize}
+	\item[(i)] $f(x)=1 \iff x \in \cup_{k} \cap_{n=k}^\infty A_n$. So, there exists $k$ such that $x \in A_n$ ($\mathbf{1}_{A_n}(x)=1$) for all $n \ge k$. So, $\lim_{n\to \infty} \mathbf{1}_{A_n}(x) = 1$ (so lim inf is also 1).
+	\item[(ii)] Suppose $f(x) =0$. For each $k$ there exists $n \ge k$ such that $x \not\in A_n$ ($\mathbf{1}_{A_n}(x)=0$) so $\liminf_n \mathbf{1}_{A_n}=0$.
+	\end{itemize}	
+	\end{proof}
+	\item[(b)] By Fatou's Lemma,
+	\[ \mu(\liminf_n A_n) = \int_X f \, d\mu = \int_X \liminf_n \mathbf{1}_{A_n} \, d\mu \le \liminf_n \int_X \mathbf{1}_{A_n} \, d\mu = \liminf_n \mu(A_n) \]
+	\end{itemize}
+\item \begin{proof} Define $f = \sup_N \sum_{n=1}^N f_n$. $f$ is a measurable function, moreover, since $f_n$ are non-negative, $\sum f_n \nearrow f$. So, by Monotone Convergence Theorem,
+	\[ \int_\bbr f = \sum \int f_n \le \sum \dfrac{1}{n^2} < \infty \]
+So $f$ is non-negative and integrable. We claim this implies $f < \infty$ a.e. If not, then there exists $E$ with $\lambda(E) >0$ and $f=\infty$ on $E$. Then,
+	\[ \int_\bbr f \ge \int_E f = \infty \]
+so $f < \infty $ a.e.
+\end{proof}
+
+\item \begin{itemize}
+	\item[(a)] \begin{proof}
+	By H\"older's Inequality,
+	\[ \left| \int f_n \, d\mu - \int f \, d\mu \right| \le \int |f-f_n| \, d\mu \le \|f-f_n\|_\infty \int \, d\mu = \|f-f_n\|_\infty \mu(X) \to 0 \]
+	as $n \to \infty$.
+	\end{proof}
+\end{itemize}
+\end{enumerate}

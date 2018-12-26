@@ -1,0 +1,114 @@
+\begin{itemize}
+
+\item[3.] \begin{itemize}
+	\item[(a)] $B$ is complete. Let $\{f_n\} \subseteq C[0,1]$ be a Cauchy sequence in $\rho_\infty$. Since $(C[0,1],\rho_\infty)$ is a complete metric space, there exists $f \in C[0,1]$ such that $f_n \to f$ in $\rho_\infty$. Now, we claim that $f \in B$. For any $\epsilon >0$ there exists $N$ such that
+	\[ \rho(f,f_n) < \epsilon \quad \forall n \ge N \]
+Then,
+	\[ \sup_{0\le t \le 1} |f(t)| = \rho(f,0) \le \rho(f,f_n) + \rho(f_n,0) < \epsilon + 1 \]
+but $\epsilon >0$ was arbitrary so 
+	\[ \sup_{0\le t \le 1} |f(t)| \le 1 \]
+	\item[(b)] Consider the spike functions, $\{f_n\}$. For $n \ne m$,
+	\[ \rho(f_n,f_m) = 1 \]
+	so there cannot be a convergent subsequence.
+\end{itemize}
+
+\item[4.]\begin{itemize}
+	\item[(a)] Let $f \in L^2(\mu)$. Then, using the Cauchy-Schwarz inequality, we compute
+		\[ ||Af||_{L^2(\mu)}^2 = \int_X \left( \int_X K(x,y) f(y) \, d \mu(y) \right)^2\, d \mu(x) \] 
+		\[ \le \int_X \left( \int_X K(x,y)^2 \, d \mu(y) \right) \left( \int_X f(y)^2 \, d\mu(y) \right) \, d \mu(x) \]
+		\[ = \left( \int_X f(y)^2 \, d\mu(y) \right) \int_X \left( \int_X K(x,y)^2 \, d \mu(y) \right) \, d \mu(x)= ||f||^2_{L^2(\mu)} ||K||_{L^2(\mu \times \mu)}^2\]
+Therefore $||A|| \le ||K||_{L^2(\mu \times \mu)}$.
+	\item[(b)] First we note that the correspondence $K \mapsto A$ is linear due to the linearity of the integral. So, it suffices to prove the following: Let $K \in L^2(\mu \times \mu)$ such that for any $f \in L^2(\mu)$,
+	\[ \int_X K(x,y) f(y) \, d \mu(y) = 0 \]
+for almost every $x \in X$ (w.r.t $\mu$). Then, $K=0$ a.e. To prove this, suppose there exists $E \subseteq X \times X$ such that $E$ has positive $\mu \times \mu$ measure in the sense that
+	\[ (\mu \times \mu) (E) :=\int_X \int _X \mathbf{1}_E(x,y) \, d\mu(x) \, d \mu(y) > 0\]
+So we define the measure $\mu \times \mu$ on the cylinder $X \times X$ in this way.
+\end{itemize}
+
+\item[5.] \phantomsection\label{q:s13-5}
+($a \Rightarrow b$) Let $x = \hat m + e$ where $\hat m$ is the closest point to $x$ is $M$. Let $y \in M$ non-zero. For any $t \in \bbc$, $ty \in M$ so
+	\[ \|x-\hat m\|^2 \le \|e-ty\|^2 = \|e\|^2 - 2\re \lip e,ty \rip + \|ty\|^2 \]
+which implies
+	\[ \re \bar t \lip e,y\rip \le |t|^2 \|y\|^2 \]
+Take $t = \overline{\lip e,y\rip} \|y\|^{-2}$. Then we have
+	\[ \dfrac{|\lip e,y\rip|^2}{\|y\|^2} \le \dfrac{|\lip e,y\rip|^2}{2\|y\|^2} \]
+therefore $\lip e,y\rip =0$.
+
+
+($b \Rightarrow a$) Let $x = \hat m + e$ for $\hat m \in M$ and $e \in M^\perp$. For any $y \in M$,
+	\[ \| x-y\|^2 = \| e - (y-\hat m)\|^2= \|e\|^2 -2\re \lip e,y-\hat m\rip + \|y-\hat m\|^2 = \|e\|^2 + \|y\|^2 \ge \|e\|^2 =\|x-\hat m\|^2\]
+Suppose $\tilde m$ is another closest point. Set $d=d(x,M)$. By the parallelogram identity,
+	\[ \|\tilde m - \hat m \|^2 = \|x -\tilde m -(x-\hat m) \|^2 = 2d^2+2d^2 -\|2x-2(\tilde m+\hat m)\|^2 \le 4d^2 -4d^2 = 0 \]
+
+\item[6.]
+	\[ f_n = n \mathbf{1}_{[0,1/n]} \]
+
+\item[7.] \phantomsection\label{q:s13-7}
+\begin{itemize}
+\item[(a)]We will show that for $h \ge0$ measurable, $\int h =0 \implies h=0$ a.e. Indeed, consider $A_n = \{ n^{-1} > h \ge (n+1)^{-1} \}$ for each $n \in \bbn$ and $A_0 = \{h \ge 1\}$. Then, for any $n \in \bbn \cup \{0\}$,
+	\[ (n+1)^{-1} \mu(A_n) \le \int_{A_n} h \, d\mu \le \int_\bbr h\, d \mu = 0 \]
+Therefore $\mu(A_n) = 0$. So, $\{h \ne 0 \} = A = \cup A_n$ which has measure zero. %Otherwise $h=0$ on $\bbr \backslash A$.
+
+Now, we apply this to the problem by taking $h = g-f$. Then, $h \ge 0$ and
+	\[ \int h = \int g-f = \int g - \int f = 0 \]
+Then by the above lemma, $h=0$ so $f=g$ a.e.
+
+\item[(b)] If $f$ and $g$ are continuous, then being equal almost everywhere will imply they are equal everywhere. Indeed, suppose there exists $x_0 \in \bbr$ such that $f(x_0) < g(x_0)$. Then, $f-g$ is continuous around $x_0$ so there exists $\epsilon >0$ such that
+	\[ f(x) < g(x) \quad \mbox{for } |x-x_0| < \epsilon \]
+However, $\lambda(\{|x-x_0|<\epsilon\})=\epsilon$ so $f \ne g$ on a set of measure $\epsilon$ which contradicts $f=g$ a.e.
+
+\item[(c)] INCOMPLETE
+\end{itemize}
+
+\item[8.] \begin{itemize}
+\item[(a)] First, $\calm$ is clearly a linear space since linear combinations of finite signed measures are still finite signedmeasure. N ow we show that total variation is a norm on $\calm$. If $\mu$ has total variation 0, this means
+	\[ \mu_+(X) = \mu_-(X) =0 \]
+so $X$ is a null set of both $\mu_+$ and $\mu_-$. Thus for every $E \subseteq X$, $\mu(E) = \mu_+(E)-\mu_-(E) = 0-0=0$. Thus $\mu$ is the zero measure. By definition, $|\alpha \mu| = \alpha \mu_+ + \alpha \mu_- = \alpha|\mu|$. Finally, to check the triangle inequality, let $\mu,\lambda \in \calm$. Let $A \cup B = X$ be a Hahn decomposition of $X$ with respect to the signed measure $(\mu+ \lambda)$. Then,
+	\[ (\mu+\lambda)_+(X) = \mu(A) + \lambda(A) \le \mu_+(A) + \lambda_+(A) \le \mu_+(X) + \lambda_+(X) \]
+and
+	\[ (\mu+\lambda)_-(X) = -\mu(B) - \lambda(B) \le \mu_-(B) + \lambda_-(B) \le \mu_-(X) + \lambda_-(X) \]
+Therefore
+	\[ |\mu+\lambda|(X) = (\mu+\lambda)_+(X) + (\mu+\lambda)_-(X) \le \mu_+(X)+ \lambda_+(X) + \mu_-(X)+ \lambda_-(X)\] \[= |\mu|(X) + |\lambda|(X) \]
+
+\item[(b)] Let $\mu$ be a $\sigma$-finite measure. Clearly $\call_\nu = \{ \mu \in \calm : \mu << \nu \}$ is a linear subspace since if $\lambda,\mu << \nu$, and $\nu(E) =0$, then
+	\[ \alpha \lambda(E) + \beta \mu(E) = 0 \]
+for any scalars $\alpha,\beta$. We note the crucial property of this subspace. If $\mu << \nu$, then the null sets of $\nu$ are also null sets of $\mu_+$ and $\mu_-$. Indeed, let $E \subset X$ such that $\nu(E)=0$. Let $A \cup B$ be a Hahn decomposition for $\mu$. Then,
+	\[ \nu(A \cap E) \le \nu(E) =0 \quad \nu(B \cap E) \le \nu(E) =0 \]
+so $\nu(A \cap E) = \nu(B \cap E) = 0$. Therefore
+	\[ \mu_+(E) = \mu(A \cap E) = 0 \quad \mu_-(E) = \mu(B \cap E) = 0 \]
+Now, let $\{\mu_n\} \subseteq \call_\nu$ converge to $\mu$ in the total variation norm. Then, let $E \subset X$ such that $\nu(E)=0$. Then, $|\mu_n|(E)=0$. By the reverse triangle inequality (a consequence of the triangle inequaity for $||\cdot||$ shown above)
+	\[|\mu|(E) = | \, |\mu|(E) - |\mu_n|(E) \, | \le |\mu - \mu_n|(E) \le |\mu-\mu_n|(X) = ||\mu-\mu_n|| \to 0 \]
+so $\mu(E) = 0$ and $\mu \in \call_\nu$.
+
+\item[(c)] Let $f \in L^1(X, \calf,\nu)$. Then,
+	\[ \mu(A) = \int_A f \,d \nu \]
+defines a signed measure for $A \subseteq X$. We only need to check that this pairing is isometric and onto. Surjectivity follows from the Radon-Nikodyn theorem which states that if $\rho << \lambda$, then there exists $\lambda$-measurable $g$ such that
+	\[ \rho = g \, d \lambda \]
+Then, to check the norms are preserved, we first show that the Hahn decomposition of $\mu$ corresponds to the positive and negative parts of $f$. Indeed, let $A = \{ f \ge 0\}$. Then, for any $E \subseteq A$,
+	\[ \mu(E) = \int_E f \, d \nu \ge 0 \]
+Similarly, for $B = \{f < 0\}$, $F \subseteq B$,
+	\[ \mu(F) = \int_F f \, d \nu \le 0 \]
+So $A \cup B$ is a Hahn decomposition for $\mu$. Therefore,
+	\[ \int_X |f| \, d \nu = \int_X f^+ + f^- \, d\nu = \int_X f^+ \, d\nu+ \int_X f^- \, d\nu = \int_A f^+ \, d\nu+ \int_B f^- \, d\nu \] \[= \mu_+(A) + \mu_-(B) = \mu_+(X) + \mu_-(X) = |\mu|(X) \]
+\end{itemize}
+
+
+\item[9.] 
+\begin{itemize}\phantomsection\label{q:s13-9}\mbox{~}
+\item[(a)]
+We have shown many times before that if $\sum \lambda(E_n) < \infty$, then $\lambda (\limsup_{n} E_n) =0$. Set 
+	\[ E_n = [r_n-2^{-n-1},r_n+2^{-n-1}] \]
+	Then,
+	\[ \sum_n \lambda(E_n) = \sum_n 2^{-n} < \infty \]
+	Set $E = \limsup_{n \to \infty} E_n$. Then, $\lambda(E)=0$. So, for any $x \not\in E$, we have that there exists $k \in \bbn$ such that $x \not\in E_n$ for all $n \ge k$. Therefore, $f(x)$ is only nonzero for finintely many indices so the sum must converge at $x$.
+\item[(b)] Set 
+		\[ X_n = \left( \bigcup_{k \ne n} E_k\right)^c \]
+	Then, $\bbr = \cup X_n$ and, $\mu(X_n)\le 1$ since $f_k = 0$ on $X_n$ for $n \ne k$. Indeed,
+		\[ \mu(X_n) = \int_{X_n} \sum f_k \, d\lambda = \int_{X_n} f_n \le \int f_n = 1 \]
+\item[(c)] To show $\mu << \lambda$, let $E \subset \bbr$ such that $\lambda(E)=0$. Then, integration over a set of measure zero is also zero so $\mu(E)=0$.
+\item[(d)] Without loss of generality, we can just show that each open ball has infinite measure since every open set contains an open ball. Let $B(x,\epsilon) \subseteq \bbr$. Then, there exists a subsequence of $\{r_n\}$ such that $\{r_{n_k}\} \subseteq B(x,\epsilon/2)$. Moreover, since the radii of $E_{n_k}$ are decreasing, there exists $N$ such that $E_{n_k} \subseteq B(x,\epsilon)$ for all $k \ge N$. Thus,
+		\[ \mu(B(x,\epsilon)) = \int_{B(x,\epsilon)} \sum f_n \, d\lambda \ge \int_{B(x,\epsilon)} \sum_{k=N}^\infty f_{n_k} \, d\lambda = \sum_{k=N}^\infty \int_{B(x,\epsilon)} f_{n_k} \ge \sum_{k=N}^\infty \int_{E_{n_k}} f_{n_k} = \infty \]
+\end{itemize}
+
+
+\end{itemize}

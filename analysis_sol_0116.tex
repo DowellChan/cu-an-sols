@@ -1,0 +1,101 @@
+\begin{enumerate}
+\item Recall
+	\[ \ln(x+1) = x-\dfrac{x^2}{2}+\dfrac{x^3}{3} - \ldots \]
+	So for $x=1$,
+	\[ \ln(2) = 1-\dfrac 12+\dfrac 13 - \ldots \]
+
+\item \begin{proof}
+	Since $\ell^2$ is a Hilbert space, $A$ being dense in $\ell^2$ is equivalent to
+		\[ A^\perp = \{ 0 \} \]
+	Let $x = (x_1,x_2,\ldots) \in A^\perp$. Then, $\lip x,a \rip_{\ell^2}=0$ for all $a \in A$. Notice that $a=e^{(k)} = (0,\ldots,0,\overset{k^{th}}{1},0,\ldots)$ is in $A$ for any $k \in \bbn$. 
+		\[ 0 = \lip x,e^{(k)} \rip = \sum_{i=1}^\infty x_i e^{(k)}_i = x_k\]
+	for $k\in \bbn$. Therefore $x=0$. Now we show the same thing for $A^c$. Let $y \in (A^c)^\perp$. Also, define $f^{(k)}=e^{(k)} - e^{(k+1)} \in A^c$. Then,
+		\[ 0 = \lip y,f^{(k)} \rip = y_k-y_{k+1} \]
+	So $y_k=y_{k+1}$ for all $k \in \bbn$. Thus $y$ is a constant sequence. The only constant sequence in $\ell^2$ is the zero sequence therefore $y=0$.
+\end{proof}
+
+\item \begin{proof}
+	First we show subspace. Let $x_1+y_1,x_2+y_2 \in X+Y$ and $a,b \in \bbr$. Then,
+		\[ a(x_1+y_1) + b(x_2+y_2) = (ax_1 + bx_2) + (ay_1+by_2) \in X + Y \]
+	Now we show closure. Let $\{(x_n+y_n)\}_{n=1}^\infty$ be a sequence in $X+Y$ with limit $z$. This sequence is also Cauchy. So, using the fact that $X \perp Y$,
+		\begin{align*}
+			||(x_n+y_n)-(x_m+y_m)||^2 &= ||(x_n-x_m) + (y_n-y_m)||^2 \\
+			&= \lip (x_n-x_m)+(y_n-y_m),(x_n-x_m)+(y_n-y_m)\rip \\
+			&= \lip (x_n-x_m),(x_n-x_m)\rip + \lip (x_n-x_m),(y_n-y_m)\rip \\
+			&\hspace{5ex}+ \lip(y_n-y_m),(x_n-x_m)\rip + \lip (y_n-y_m),(y_n-y_m)\rip \\
+			&= \lip (x_n-x_m),(x_n-x_m) \rip + \lip(y_n-y_m),(y_n-y_m) \rip \\
+			&=||x_n-x_m||^2 + ||y_n-y_m||^2  
+		\end{align*}
+	and thus $\{x_n\}$ and $\{y_n\}$ are both Cauchy. Since $\calh$ is a Hilbert space, they are convergent to some $x,y$ respectively. Since $X,Y$ are closed, $x \in X$ and $y \in Y$. Then,
+		\[ z = \lim_{n \to \infty} (x_n+y_n) = \lim_{n\to\infty}x_n + \lim_{n\to\infty}y_n = x+y \in X + Y \]
+	Therefore $X +Y$ is closed.			
+\end{proof}
+
+\item \begin{proof}
+	Since $Y$ is a Banach space, $\calb(X,Y)$ is also a Banach space. In a Banach space, any absolutely convergent series is convergent. Since $||T|| < 1$,
+		\[ \sum_{n=0}^\infty ||T||^n < \infty \]
+	So 
+		\[ \sum_{n=0}^\infty T^n \in \calb(X,Y) \]
+\end{proof}
+
+\item 
+	\begin{enumerate}[(a)]
+	\item \begin{proof}
+		First, to show $T$ is well-defined we need to show $T\xi$ is continuous for a fixed $\xi$. This follows from the fact that for $n>m$,
+			\[ \left|\left| \sum_{k=0}^n a_k\xi_kx^k-\sum_{k=0}^m a_k\xi_kx^k \right|\right|_\infty = \sup_{x \in [0,1]} \left|\sum_{k=m+1}^n a_k\xi_kx^k \right| \le ||a||_\infty \sum_{k=m+1}^n |\xi_k| \to 0\]
+		as $n,m \to \infty$ since $\xi \in \ell^1$. Thus, this sequence of partial sums is Cauchy in $||\cdot||_\infty$. Since $(C[0,1],||\cdot||_\infty)$ is a Banach space, it's limit, $T\xi \in C[0,1]$. To show linearity, let $\xi,\zeta \in \ell^1$ and $\alpha,\beta \in \bbr$.
+		\[ T(\alpha\xi + \beta\zeta)(x) = \sum_{k=0}^\infty a_k(\alpha \xi_k + \beta\zeta_k)x^k = \alpha\sum_{k=0}^\infty a_k\xi_kx^k + \beta\sum_{k=0}^\infty a_k\zeta_kx^k \]
+		\[= \alpha T(\xi)(x) + \beta T(\zeta)(x)\]
+	\end{proof}
+	\item \begin{proof}
+		\[||T(\xi)||_\infty = \sup_{x\in[0,1]} |T(\xi)(x)| = \sup_{x\in[0,1]} \left|\sum_{k=0}^\infty a_k\xi_kx^k \right| \le ||a||_\infty \sum_{k=0}^\infty |\xi_k| = ||a||_\infty \cdot ||\xi||_1 \]
+		So $||T|| \le ||a||_\infty$. We claim this is actually the norm. For $\epsilon>0$ there exists $a_n \in a$ such that
+			\[ |a_n| > ||a||_\infty - \epsilon \]
+		Pick $\xi^{(n)} = (0,\ldots,0,\overset{n^{th}}{1},0,\ldots) \in \ell^1$. Then,
+			\[ ||T\xi^{(n)}||_\infty = \sup_{x\in[0,1]} \left|\sum_{k=0}^\infty a_k\xi^{(n)}_kx^k \right| = \sup_{x\in[0,1]}|a_nx^n| = |a_n| > ||a||_\infty -\epsilon \]
+		Since there exists such $\xi^{(n)}$ for all $\epsilon>0$, $||T|| = ||a||_\infty$.
+	\end{proof}
+	\end{enumerate}
+
+\item 
+	\begin{enumerate}[(i)]
+		\item LDCT cannot be applied to $f_n$ since any $k$ which bounds every $f_n$ above, must be greater than $1$ everywhere thus $\int_\bbr k = \infty$.
+		\item LDCT cannot be applied to $g_n$ since any $k$ which bounds every $g_n$ above, must be greater than $1/x$ everywhere thus $\int_\bbr k \ge \int_\bbr 1/x= \infty$.
+		\item LDCT can be applied since for $k=1/x^2$, $|h_n|\le k$ and
+			\[ \int_\bbr \dfrac 1{x^2} \, dx < \infty \]
+	\end{enumerate}
+
+\item \begin{proof}
+	Let $E \subset \bbr$, $\epsilon \in (0,1)$. Set $\delta = m^*(E)(1/\epsilon-1)>0$. By definition of outer measure, there exists an open set $G \supset E$ such that $m^*(E) + \delta > m^*(G)=m(G)$. Then,
+	\[ \epsilon m(G) < \epsilon(m^*(E)+\delta) = \epsilon m^*(E)(1+1/\epsilon-1) = m^*(E) \]
+Moreover, since $G$ is open, it can be written as a countable, disjoint union of open intervals, say ${I_k}$. Then,
+	\[ \sum_k \epsilon m(I_k) = \epsilon m(G) < m^*(E) = m^*(E \cap G) \le \sum_k m^*(E \cap I_k) \]
+Therefore, at least one term in the left hand sum must be smaller than one term in the right sand sum, i.e. there exists $k$ such that $\epsilon m^*(I_k) = \epsilon m(I_k) < m^*(E \cap I_k)$.
+\end{proof}
+
+\item \begin{proof}
+	Define $A_n := \{ x \in [0,1] : n+1 > |f(x)| \ge n \}$
+		\[ \sum_{n=1}^\infty n \lambda(A_n) = \sum_{n=1}^\infty \int_{A_n} n \, dx \le \sum_{n=1}^\infty \int_{A_n} f(x) \, dx = \int_0^1 f(x) < \infty \]
+	So,
+		\[ \lim_{n\to\infty} n \lambda( \{ x \in [0,1]: |f(x)| \ge n \}) = \lim_{n\to\infty} n \lambda\left( \bigcup_{k=n}^\infty A_k \right) = \lim_{n \to \infty} n \sum_{k=n}^\infty \lambda(A_k) \] 
+		\[ \le \lim_{n\to\infty} \sum_{k=n}^\infty k\lambda(A_k) =0\]
+\end{proof}
+
+\item
+	\begin{enumerate}
+		\item \begin{proof} Let $f(x)>0$ for $x \in [0,1]$ and $E \subseteq [0,1]$ such that $\lambda(E) >0$. Suppose $\int_E f \, d\lambda =0$. Then
+			\[ f(x)=0 \]
+		for almost every $x \in E$. However, since $\lambda(E)>0$ there exists $x \in E$ such that $f(x)=0$ which is a contradiction.
+		\end{proof}
+
+		\item First we prove the following fact: $\mu( \limsup E_n) \ge \limsup \mu(E_n)$. Indeed, set $F_k = \cup_{n=k}^\infty E_n$. $F_k$ are decreasing.
+	\[ \mu(\cap_{k=1}^\infty \cup_{n=k}^\infty E_n) = \mu(\cap_{k=1}^\infty F_k)= \inf_k \mu(F_k) = \inf_k \mu(\cup_{n=k}^\infty E_n) \ge \inf_k \sup_{n \ge k} \mu(E_n) \]
+\begin{proof}
+			Fix $\epsilon \in (0,1]$. Suppose $\displaystyle\inf_{\lambda(E) \ge \epsilon} \int_E f \, d\lambda = 0$. Then, for each $n$ there exists $E_n$ with $\lambda(E_n) \ge \epsilon$ and
+				\[ \int_{E_n} f\, d\lambda <\dfrac{1}{n^2} \]
+		Then, consider $E = \limsup E_n = \cap_{k=1}^\infty \cup_{n=k}^\infty E_n$. By the fact above, $\mu(E) \ge \epsilon$. By part (a), this means $\int_E f \, d\lambda>0$. However,
+	\[ \int_E f \, d\lambda = \int_{\cap_{k=1}^\infty \cup_{n=k}^\infty E_n} f \, d\lambda \le \int_{\cup_{n=k}^\infty E_n} f \, d\lambda \le \sum_{n=k}^\infty \int_{E_n} f \, d\lambda \le \sum_{n=k}^\infty \dfrac 1{n^2} \]
+for any $k$. Therefore $\int_E f \, d\lambda =0$ which is a contradiction.
+		\end{proof}
+	\end{enumerate}
+\end{enumerate}

@@ -1,0 +1,35 @@
+\begin{itemize}
+
+\item[4.]
+	\begin{itemize}
+		\item[(a)]
+			We will show $K$ is totally bounded. Let $\epsilon >0$. For $x,y \in K$,
+				\[ d_S(x,y) = \sum_i \dfrac{|x_i-y_i|}{2_i(1+|x_i-y_i|)} \le \sum_i \dfrac{2}{2^i} < \infty \]
+			So, there exists $N$ such that
+				\[ \sum_{i=N+1}^\infty \dfrac{1}{2^{i-1}} < \epsilon/2 \]
+			Consider the set $M = \{ x \in K : x_i = 0 , i>N \} \subseteq K$. $M$ is compact since it is finite dimensional and bounded.
+			So, there is an $\epsilon /2$ net for $M$ which will be an $\epsilon$ net for $K$.
+		\item[(b)]
+			False. Consider the sequence $\{e_n\}\subseteq K$, which is entirely zero except the n-th entry. For $n \ne m$,
+				\[ d_\infty(e_n,e_m) = 1 \]
+			so this sequence cannot have a convergent subsequence.
+	\end{itemize}
+\item[5.]
+	\begin{itemize}
+		\item[(a)]
+			Define $g_n = \sum_{k=1}^n f_k$. Since $f_k$ are non-negative, $\{g_n\}$ is monotone. Moreover,
+				\[ g_n \nearrow \sum_{k=1}^\infty f_k \]
+			Then, by Monotone Convergence Theorem,
+				\[ \sum_{k=1}^\infty \int f_k = \lim_{n \to \infty} \sum_{k=1}^n \int f_k = \lim_{n \to \infty} \int g_n
+					= \int \sum_{k=1}^\infty f_k \]
+		\item[(b)]
+			By part (a),
+				\[ \infty > \sum \int |f_k-f| = \int \sum |f_k-f| \]
+			Since $\sum|f_k-f|$ is integrable, it is finite almost everywhere. Let $E \subseteq \bbr$ be the set of measure zero where it may not be finite.
+			Let $x \not\in E$. Let $\epsilon >0$. There exists $N$ such that
+				\[ |f_n(x)-f(x)| \le \sum_{k=N}^\infty |f_n(x)-f(x)| <\epsilon \]
+			for all $n \ge N$.
+	\end{itemize}
+
+\item[7.] See \hyperref[q:w15-9]{Winter 15 \#9}
+\end{itemize}

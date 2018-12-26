@@ -1,0 +1,45 @@
+\begin{itemize}
+
+\item[3.]
+	\begin{itemize}
+		\item[(a)]
+			\[ \|Tf\|_\infty = \sup_{x \in [0,1]} |x^2f(x)| \le \sup_{x \in [0,1]} |f(x)| = \|f\|_\infty \]
+		\item[(b)]
+			For $f \equiv 1$, $\|Tf\|=1$ and $\|f\|=1$.
+		\item[(c)] By triangle inequality, $\|(I+T)f\|_\infty \le \|f\|_\infty + \|Tf\|_\infty \le 2\|f\|$. So, we only need to show $\|I+T\|=2$. Again, this follows from taking $f \equiv 1$.
+			\[ \|(I+T)f\| = \sup_{x \in [0,1]} |1+x^2| = 2 \]
+	\end{itemize}
+
+\item[4.]
+	\begin{itemize}
+		\item[(a)] We will actually show more, namely that 
+				\[ \|x\|_q \le \|x\|_p \quad \mbox{for } 1 \le p<q<\infty \]
+		\begin{proof}
+		Let $x \in \ell^p$. Define
+			\[ y = \dfrac{x}{\|x\|_p} \]
+		Then, $|y_i| \le 1$ for every $i \in \bbn$. This implies $|y_i|^q \le |y_i|^p$ for all $i$. Therefore,
+			\[ \|y\|_q^q =\sum |y_i|^q \le \sum |y_i|^p = \sum \dfrac{|x_i|^p}{\|x\|_p^p} = \dfrac{\sum |x_i|^p}{\sum |x_i|^p} =1\]
+		so $\|y\|_q\le1$. But this implies
+			\[ \dfrac{\|x\|_q}{\|x\|_p} = \left\| \dfrac{x}{\|x\|_p} \right\|_q = \|y\|_q \le 1 \]
+		\end{proof}
+	\end{itemize}
+
+\item[5.]
+	\begin{itemize}
+		\item[(a)] Let $f \in L^q$, $1 \le p < q < \infty$. we will apply holder inequality with exponent $q/p>1$.
+		\[ \int |f|^p \le \left(\int |f|^q \right)^{p/q} \left( \int 1 \right)^{1-p/q} = \left( \int |f|^q \right)^{p/q} \left( \mu(X)\right)^{1-p/q} < \infty \]
+		\item[(b)] Take
+			\[ f(x) = \left\{ \begin{array}{cl} 0 & x=0 \\ x^{-1/2} & 0 <|x| \le 1 \\ 0 & |x| <1 \end{array} \right. \]
+			\[ g(x) = \left\{ \begin{array}{cl} x^{-1} & |x| \ge 1 \\ 1 & |x| <1 \end{array} \right.	\]
+	\end{itemize}
+
+\item[6.]
+	There are many options for $f_n$:
+		\[ n^2 \chi_{[0,1/n]} \quad n \chi_{[n,n+1]} \quad \chi_{[n,2n]}\]
+	Then, just take
+		\[ g_n = \dfrac 1n f_n \]
+	and
+		\[ h_n = (-1)^n g_n \]
+
+\item[7.]
+\end{itemize}

@@ -1,0 +1,140 @@
+\begin{enumerate}
+
+\item 
+	\begin{enumerate}[(a)]
+	\item
+	\begin{proof}
+	We show that $f_n$ does not converge uniformly on the half-open interval $[0,1)$. The pointwise limit is clearly $f(x)=0$ for $x \in [0,1)$. If $\{f_n\}$ converges uniformly, then it must converge to $f$, the pointwise limit. Let $\epsilon >0$. For any $n \in \bbn$ there exists $x \in (0,1]$ such that
+			\[ 1>x > \left( \dfrac{\epsilon}{1-\epsilon} \right)^{1/n} \]
+	Then,
+			\[ |f(x)| > \epsilon \]
+	so $\{f_n\}$ does not converge uniformly on $[0,1)$ therefore it does converge uniformly on $[0,1]$.
+	\end{proof}
+	
+	\item
+	\begin{proof}
+		Notice that
+			\[ f_n(x) \le 1 \]
+		for $x \in [0,1]$. Since $\displaystyle\int_0^1 1 \, dx < \infty$, by Lebesgue Dominated Convergence Theorem,
+			\[ \lim_{n \to \infty} \int_0^1 f_n(x) \, dx = \int_0^1 \lim_{n \to \infty} f_n(x) \, dx =  \int_0^1 0 \, dx =0\]
+	\end{proof}
+	\end{enumerate}
+
+\item False. Counterexample: \\
+	Consider $\{x^{(n)} \}_{n=1}^\infty \subset X$ where
+		\[ x^{(n)} := (1, \tfrac 12, \tfrac 13, \ldots , \tfrac 1{n}, 0,0,\ldots ) \in X\]
+	Then, $\{ x^{(n)} \}_{n=1}^\infty$ is Cauchy: For $\epsilon >0$, pick $N \in \bbn$ such that $\dfrac 1N <\epsilon$.
+	So, for all $n,m \ge N$ $(n>m)$,
+		\[ d(x^{(n)},x^{(m)}) = \sup_{i \in \bbn} \left|x^{(n)}_i-x^{(m)}_i\right| = \dfrac 1m < \dfrac 1N < \epsilon \]
+	However, $x_n \to (1,\tfrac 12,\tfrac 13,\ldots)$ which is not in $X$.
+\item \begin{proof}
+	Let $\{y_n\}_{n=1}^\infty \subset K$. Let $\{y_{n_k} \}_k$ denote the set of distinct elements of $\{y_n\}_{n=1}^\infty$. If $\{y_{n_k}\}_k$ is finite, then there exists some $m \in \bbn$ such that $y_m$ occurs infintely many times in $\{ y_n\}_{n=1}^\infty$ thus the constant sequence $\{y_m\}$ is a convergent subsequence of $\{y_n\}_{n=1}^\infty$. On the other hand if $\{y_{n_k}\}_k$ is infinte, then 
+		\[ \{y_{n_k}\}_{k=1}^\infty \subset \{x_n\}_{n=0}^\infty \]
+is a subsequence of a convergent sequence so it is itself covergent to $\lim_{n \to \infty} x_n = x_0 \in K$.
+\end{proof}
+
+\item \begin{proof}
+	First, notice
+		\begin{align*}
+			(T-S)^3 &= (T^2-ST-TS+S^2)(T-S)\\
+				&= (T-2ST+S)(T-S) \\
+				&= (T^2-2ST^2+ST-ST+2S^2T-S^2) \\
+				&= (T-2ST+ST-ST+2ST-S) \\
+				&= (T-S)
+		\end{align*}
+	Then, by Cauchy-Schwarz for the operator norm,
+		\[ ||T-S|| = ||(T-S)^3|| \le ||T-S||^3 \]
+	Therefore
+		\[ 1 \le ||T-S||^2\]
+	and
+		\[ ||T-S|| \ge 1 \]
+\end{proof}
+
+\item \begin{proof}
+	Let $n,m \in \bbn$. Without loss of generality, let $n>m$. First,
+		\[ ||x_m||^2 = \lip x_n,x_m \rip \le ||x_n|| \cdot ||x_m|| \]
+	so $\{||x_n||\}_{n=1}^\infty$ is monotone decreasing. Moreover it is bounded below by 0 so it is convergent to some $K \in \bbr$. Moreover, since
+		\[ \lim_{n\to \infty} ||x_n||^2 = \left( \lim_{n \to \infty} ||x_n|| \right)^2 = K^2 \]
+	$\{||x_n||^2\}_{n=1}^\infty$ is convergent and therefore Cauchy.
+	Then, for $n>m$,
+		\begin{align*}
+			||x_n-x_m||^2 &= \lip x_n-x_m,x_n-x_m \rip \\
+				&=||x_n||^2 - \lip x_n,x_m \rip - \lip x_m,x_n \rip + ||x_m||^2 \\
+				&=||x_n||^2 - ||x_m||^2 - ||x_m||^2 + ||x_m||^2 \\
+				&=||x_n||^2-||x_m||^2 \\
+				&=\left| ||x_n||^2-||x_m||^2 \right| \to 0\\
+		\end{align*}
+	So $\{x_n\}_{n=1}^\infty$ is Cauchy and therefore convergent since $\calh$ is a Hilbert space.
+\end{proof}
+
+\item \begin{proof}
+	Let $A=(0,1)$ and $B=(0,\tfrac 12) \cup (\tfrac 12,1)$. Then,
+		\[ d(A,B) = \lambda(A \Delta B) = \lambda( \{ \tfrac 12 \} ) = 0 \]
+	but $A \ne B$. Thus the first property of a metric $d(A,B)=0 \implies A=B$ fails.
+\end{proof}
+
+\item \begin{proof}
+	($\Leftarrow$) Fix $\epsilon >0$. Then, there exists an open set $\mathcal{O} \supseteq A$ such that
+				\[ \lambda(\mathcal{O} \backslash A) < \epsilon \]
+		Thus $\mathcal{O}\backslash A \in \call$, the $\sigma$-algebra of Lebesgue-measurable sets. Moreover, since $\calo$ is open, it is also Lebesgue measurable. Thus,
+			\[ A = \calo \backslash (\calo \backslash A) \in \call\]
+		since $\call$ is closed under set-minus.\\
+	($\Rightarrow$) Let $A$ be Lebesgue measurable. Then,
+		\[ \lambda(A) = \lambda^*(A) = \inf_{A \subseteq \bigcup\limits_n I_n} \sum_{n=1}^\infty \lambda(I_n) \]
+	where $I_n = [a_n,b_n)$. Now, let $\epsilon >0$. By definition of inf, there exists $\{I_n\}_{n=1}^\infty$ such that
+		\[ \lambda(A) +\dfrac \epsilon 2 > \sum_{n=1}^\infty \lambda(I_n) \quad \text{and} \quad A \subseteq \bigcup_{n=1}^\infty I_n \]
+	Now, define
+		\[ J_n = \left(a_n,b_n+\dfrac \epsilon {2^{n+1}} \right) \]
+	Then, $I_n \subset J_n$ for all $i$ and for $\mathcal{O} := \bigcup\limits_{n=1}^\infty J_n$
+		\[ \lambda(\mathcal{O}\backslash A) = \lambda(\mathcal{O})-\lambda(A)\le \sum_{n=1}^\infty \lambda(J_n) - \lambda(A) = \sum_{n=1}^\infty \left(\lambda(I_n)+\dfrac{\epsilon}{2^{n+1}} \right) - \lambda(A) < \epsilon \]
+
+	
+\end{proof}
+
+\item 
+	\begin{enumerate}[(a)]
+		\item \begin{proof}
+			Proof by contraposition. Suppose $\lambda(E_n)=0$ for all $n \in \bbn$. Then,
+				\[ \lambda\left(\{x \in I: f(x) >0 \}\right) = \lambda \left( \bigcup_{n=1}^\infty E_n \right) = \lim_{n\to\infty} \lambda(E_n) = 0 \]
+			since $\{E_n\}$ are nested. 
+		\end{proof}
+	
+		\item \begin{proof}
+			Suppose the assumption holds and that $\lambda\left(\{x \in I: f(x) >0 \}\right) >0$. Then, by part (a), there exists some $n \in \bbn$ such that $\lambda(E_n) >0$. Since the measure of $E_n$ is positive, it contains infintely many points. Now, pick $x_1,\ldots,x_{n\cdot M} \in E_n$, then,
+		\[ f(x_1) + \cdots + f(x_{n \cdot M}) > \dfrac 1n + \cdots + \dfrac 1n = Mn\left(\dfrac 1n\right) = M \]
+which is a contradiction.
+		\end{proof}
+	\end{enumerate}
+
+\item INCOMPLETE
+\begin{proof}
+	($\Rightarrow$) By the Triangle Inequality,
+		\[ ||f_n||_1 \le ||f_n - f||_1 + ||f||_1 \]
+	and
+		\[ ||f||_1 \le ||f-f_n||_1 + ||f_n||_1 \]
+	therefore
+		\[ \big| ||f_n||_1-||f||_1 \big| \le ||f_n-f||_1 \to 0\]
+	as $n \to \infty$. \\
+	($\Leftarrow$) 
+\iffalse
+First, we show that pointwise a.e. convergence implies convergence in measure since $[0,1]$ is a finite measure space: Fix $\epsilon >0$. Set $E_n = \{ |f_n-f| >\epsilon \}$. Since $f_n(x) \to f(x)$ for almost every $x \in [0,1]$, 
+	\[ \mu\left( \bigcap_{n=1}^\infty E_n \right) = 0 \]
+Also, we can find a subsequence of $\{E_n\}$ (still denoted by $E_n$) for which $E_n \supseteq E_{n+1}$. Then, for $E= \cap_{n=1}^\infty E_n =$,
+	\[ 0=\mu(E)= 1-\mu(E^c) = 1- \mu\left( \bigcup_{n=1}^\infty E_n^c \right) = 1- \lim_{n\to\infty} \mu(E_n^c) = \lim_{n \to \infty} \mu(E_n) \]
+Therefore $f_n \to f$ in measure. Now, 
+	\[ \int_0^1 |f_n-f| \, d\mu = \int_{E_n}|f_n-f| \, d\mu - \int_{E_n^c} |f_n-f| \, d\mu \]
+	\[ \le \mu(E_n) (\|f_n\|_1+\|f\|_1) + \epsilon \mu(E_n^c) \le 2C\mu(E_n)+\epsilon \]
+which can be arbitrarily small for properly chosen $n$ and $\epsilon$. $C$ is the uniform bound on $\|f_n\|_1$ which exists since the sequence of real numbers $\{\|f_n\|_1\}_n$ is convergent.
+\fi
+\end{proof}
+
+\item \begin{proof}
+	Applying Holder's Inequality,
+		\[ \sum_{n=0}^\infty \int_n^{n+1} f(x) \, dx \le \sum_{n=0}^\infty \left( \int_n^{n+1} f(x)^2 \, dx \right)^{1/2} \left( \int_n^{n+1} 1^2 \, dx \right)^{1/2} \]
+		\[ \le \left( \int_\bbr f(x)^2 \, dx \right)^{1/2}= ||f||_{L^2(\bbr)} < \infty \]
+	therefore 
+		\[ \lim_{n\to \infty} \int_n^{n+1} f(x) \, dx = 0\]
+\end{proof}
+
+
+\end{enumerate}

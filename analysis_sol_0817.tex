@@ -1,0 +1,47 @@
+\begin{itemize}
+
+\item[5.] Hao Chen
+\begin{proof}
+To show the orthonormal set $\{f_n\}$ is an orthonormal basis we will show that $\{f_n\}^\perp = \{0\}$. If not, then there exists $x \ne 0$ such that $\lip x,f_n\rip = 0$ for all $n$. However, by Parseval's identity and the Cauchy-Schwarz inequality,
+	\[ \|x\|^2 = \sum |\lip x,e_n\rip|^2 = \sum | \lip x,e_n-f_n\rip|^2 \le \sum \|x\|^2\|e_n-f_n\|^2 < \|x\|^2 \]
+but this is a contradiction so $\{f_n\}^\perp = \{0\}$.
+\end{proof}
+
+A more complicated proof by Walton:
+\begin{proof}
+Let $ c = \sum \|e_n-f_n\|^2 <1$. Define $T: \calh \to \calh$ by sending $x = \sum \lip x,e_n\rip e_n \mapsto \sum \lip x,e_n\rip f_n$. The second sum converges by the Bessel inequality. Now, by the Cauchy-schwarz inequality and Parseval's identity,
+	\[ \| (I-T)x \|^2 = \left\| \sum \lip x ,e_n \rip (e_n-f_n) \right\|^2 \le \sum |\lip x,e_n\rip|^2 \sum \| e_n-f_n\|^2 = c\|x\|^2 \]
+So, $\|T-I\| \le \sqrt{c} <1$. We claim that this means $T$ is invertible. Indeed, set
+	\[ S = \sum_{n=0}^\infty (I-T)^n \]
+The sum is absolutely convergent since $\|I-T\| <1$ so $S$ is bounded linear operator since $\call(\calh)$ is a Banach space. Moreover,
+	\[ S-TS,S-ST = \sum_{n=1}^\infty (I-T)^n = S-(I-T)^0 = S-I \]
+so $S=T^{-1}$. Now, let $y \in \calh$. Then, there exists $x$ ($T^{-1}y$) such that $Tx=y$. Therefore,
+	\begin{equation}\label{exp} y = \sum \lip x,e_n\rip f_n \end{equation}
+and therefore $\overline{\text{span}}\{f_n\} = \calh$.
+\end{proof}
+%Remark: This actually shows something stronger, namely that $f_n = e_n$ since the expansion (\ref{exp}) is unique for each $y$ so 
+Remark: This acutally holds if $\sum \|e_n-f_n\|^2 < \infty$.
+
+\item[6.] Define $A_n = \{ f \ge 1/n\}$. Since $A_n \subseteq A_{n+1}$,
+		\[ 0 < \mu(\{f >0 \}) = \mu \left( \bigcup_n A_n \right) = \lim_{n \to \infty} \mu(A_n) \]
+	Therefore there exists $n$ such that $\mu(A_n) >0$. Then,
+		\[ \int f \ge \int_{A_n} f \ge \dfrac 1n \mu(A_n) > 0 \]
+
+\item[7.] \begin{itemize}
+		\item[(a)] We first show that if $f$ is integrable, the $\mu(E_n) \to 0$ implies $\int_{E_n} f \to 0$. Since $f$ is integrable, for $A_n = \{ n-1 \le |f| \le n \}$,
+		\[ \infty > \int |f| \ge \sum (n-1)\mu(A_n) \]
+		Given $\epsilon >0$ there exists $N$ such that $\sum_{n=N}^\infty (n-1) \mu(A_n) < \epsilon/2$. Also, we can find $M$ such that 
+		\[ \mu(E_n) < \epsilon/(2N) \quad \forall \, n \ge M \]
+		Then, for $n \ge M$,
+		\[ \left|\int_{E_n} f\right| \le \int_{E_n} |f| = \int_{E_n \cap \{f \le N \} } + \int_{E_n \cap \{f > N\}} |f| \]
+		\[\le N\mu(E_n) + \sum_{k=N}^\infty (k-1)\mu(A_k) \le N\epsilon/2N + \epsilon /2 = \epsilon \]
+		Now we can prove the statement. Let $a,b \in \bbr$. Then there exists $\{a_n\},\{b_n\} \subseteq \bbq$ such that
+		\[ a_n \to a \quad b_n \to b \]
+		Then,
+		\[ \int_a^b f = \int_a^{a_n}f + \int_{a_n}^{b_n}f + \int_{b_n}^bf \]
+		The middle term is zero by assumption and applying the above lemma, the first and third terms go to 0.
+		\item[(b)] INCOMPLETE
+	\end{itemize}
+
+\item[8.] This is a special case of Winter 15 \#10.
+\end{itemize}

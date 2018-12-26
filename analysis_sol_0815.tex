@@ -1,0 +1,144 @@
+\begin{enumerate}
+
+
+\item 
+	\begin{enumerate}[(a)]
+	\item \begin{proof}
+	Let $\epsilon >0$, pick $N \in \bbn$ such that
+		\[ \sum_{k=n+1}^\infty M_n < \epsilon \]
+	for all $n \ge N$. This can be done since $\sum M_n < \infty$. Now, for all $x \in \bbr$,
+		\[ \left| \sum_{k=1}^\infty f_k(x) - \sum_{k=1}^n f_k(x) \right| \le \sum_{k=n+1}^\infty |f_n(x)| \le \sum_{k=n+1}^\infty M_n < \epsilon \]
+	for all $n \ge N$. Therefore
+		\[ \sum_{k=1}^\infty f_k(x) \]
+	is uniformly convergent.
+	\end{proof}
+
+	\item Define
+		\[ f_n(x) := \left\{ \begin{array}{ll} \dfrac 1n & n \le x < n+1 \\ 0 & \text{otherwise} \end{array} \right. \quad \forall n\ in \bbn \]
+		Then, clearly $\sum f_n(x)$ is convergent pointwise and
+			\[ \sum_{n=1}^\infty ||f_n||_\infty \le \sum_{n=1}^\infty \dfrac 1n = \infty \]
+		Now we need to show this convergence is actually uniform. Let $\epsilon >0$. Pick $N \in \bbn$ such that $\dfrac 1N < \epsilon$. Then, for all $x \in \bbr$,
+			\[ \left| \sum_{k=1}^\infty f_k(x) - \sum_{k=1}^n f_k(x) \right| \le \sum_{k=n+1}^\infty |f_k(x)| \le \dfrac 1{n+1} \le \dfrac 1N < \epsilon \]
+		for all $n \ge N$.
+	\end{enumerate}
+
+\item \begin{proof}
+First we show $(A^{\perp})^{\perp}$ is a closed subspace containing $A$. Clearly $ A \subset (A^{\perp})^{\perp}$. Let $x,y \in (A^{\perp})^{\perp}$ and $a,b \in \mathbb{C}$. Then,
+	\[ \langle ax+by | z \rangle = a\langle x| z \rangle + b\langle y | z \rangle = 0 + 0 = 0 \quad \forall z \in A^{\perp} \]
+Let $\{x_n\}_{n=1}^{\infty} \subset (A^{\perp})^{\perp}$ such that $x_n \to x$.
+	\[ \langle x | z \rangle = \lim_{n\to \infty} \langle x_n | z \rangle = \lim_{n \to \infty} 0 = 0 \quad \forall z \in A^{\perp} \]
+So, we have shown  $\overline{\text{span}}A \subset (A^{\perp})^{\perp}$. Now, let $x \in (A^{\perp})^{\perp}$. Then,
+	\[ d(x,\overline{\text{span}}A) = \sup_{\substack{y \in (\overline{\text{span}}A))^{\perp},\\ ||y|| \le 1} } |\langle x | y \rangle | = \sup_{y \in A^{\perp}, ||y|| \le 1 } |\langle x | y \rangle | = 0\]
+So $x \in \overline{\text{span}}A$ since it is closed.
+\end{proof}
+
+\item 
+	\begin{enumerate}[(a)]
+	\item \begin{proof}
+		\begin{enumerate}[(i)]
+			\item Clearly, $d_s(A,A)=0$. Now, suppose $d_s(A,B)=0$. Then for all $\epsilon >0$ and $x \in A$,
+				\[ d(x,B) \le \epsilon \]
+			thus $d(x,B)=0$ so $x \in B$ since $B$ is closed. Thus $A \subseteq B$. Likewise $B \subseteq A$. so $A=B$.
+			\item Clearly $d_s(A,B) = d_s(B,A)$.
+			\item Let $C \subseteq X$ be closed. Let $\epsilon_1>0$ be such that $A_{\epsilon_1} \subset C$ and $C_{\epsilon_1} \subseteq A$. Let $\epsilon_2>0$ such that $B_{\epsilon_2} \subset C$ and $C_{\epsilon_2} \subseteq B$. Then,
+				\[ A_{\epsilon_1+\epsilon_2} \subset C_{\epsilon_2} \subset B \quad \text{and} \quad B_{\epsilon_1+\epsilon_2} \subset C_{\epsilon_1} \subset A \]
+			So, $d_s(A,B) \le \epsilon_1+\epsilon_2$ for all such $\epsilon_1,\epsilon_2$. Thuerefore,
+				\[ d_s(A,B) \le \inf\{\epsilon_1\} + \inf\{\epsilon_2\} = d_s(A,C) + d_s(C,B) \]
+		\end{enumerate}
+	\end{proof}
+
+	\item If the sets are not closed, then the first property of the metric fails. $d_s(A,A)=0$ but $d_s(A,B)=0$ does not necessarily $A=B$. Consider $X=\bbr$ and $A=[0,1]$ and $B=(0,1)$. $d_s(A,B)=0$ but $A \ne B$.
+	\end{enumerate}
+
+\item \begin{enumerate}[(a)]
+	\item \begin{proof}
+		First, we show $T$ is bounded:
+		\begin{align*}
+		||Tf||_\infty &= \sup_{t \in [0,1]} \left| \int_0^t sf(s) \, ds \right| \le \sup_{t \in [0,1]} \int_0^t s|f(s)| \, ds \\
+			&\le ||f||_\infty \sup_{t \in [0,1]} \int_0^t s \, ds \le ||f||_\infty \int_0^1 s \, ds = \dfrac 12 ||f||_\infty
+		\end{align*}
+		so $||T|| \le \dfrac 12$. 
+		Let $f,g \in C[0,1]$ and $a,b \in \bbr$. Then,
+		\[ T(af+bg)(t) = \int_0^t s(af+bg)(s) \, ds = a \int_0^t sf(s) \, ds + b \int_0^t sg(f) \, ds = a(Tf)(t) + b(Tg)(t) \]
+		so $T$ is linear.
+	\end{proof}
+	
+	\item \begin{proof}
+		Let $f(t)=1$ for all $t \in [0,1]$. Then, $||f||_\infty=1$ and
+			\[ ||Tf||_\infty = \sup_{t \in [0,1]} \left| \int_0^t s \, ds \right| = \sup_{t\in [0,1]} \dfrac{t^2}{2} = \dfrac 12 \]
+		so $||T||=\dfrac 12$.
+	\end{proof}
+\end{enumerate}
+
+\item \begin{enumerate}[(a)]
+	\item \begin{proof}
+		For every $n \in \bbn$ there exists $E_n \subseteq X$ such that $\mu(E_n) < \dfrac 1{n^2}$ and $f_k \to f$ uniformly on $X \backslash E_n$. Let 
+			\[ E := \bigcap_{k=1}^\infty \bigcup_{n=k}^\infty E_n\]
+		Then, $\mu(E) = 0$ (For proof see \hyperref[q:w15-10]{Winter 15 \#10}) since 
+			\[ \sum_{n=1}^\infty \mu(E_n) < \sum_{n=1}^\infty \dfrac 1{n^2} < \infty \]
+		Now, for $x \not\in E$, there exists $k$ such that $x \not\in \bigcup_{n=k}^\infty E_n$ so $x \not\in E_n$ for all $n \ge k$ (However we only need it to hold for a single set, $E_k$. So, since $x \in E_k^c$,
+			\[ f_n(x) \to f(x) \]
+		as $n \to \infty$. Therefore $f_n \to f$ pointwise a.e.
+	\end{proof}
+	
+	\item \begin{proof}
+		Let $\epsilon >0$. Then, there exists some $E_\epsilon$ such that $\mu(E_\epsilon) < \epsilon$ and $f_n \to f$ uniformly on $E_\epsilon$. Moreover, there exists $N \in \bbn$ such that
+			\[ |f_n(x)-f(x)| < \epsilon \]
+		for all $n \ge N$, $x \in E_\epsilon^c$. Then,
+			\[ \mu\{|f_n-f| > \epsilon \} \le \mu(E_\epsilon) <\epsilon \]
+		so
+			\[ ||f_n-f||_\mu = \inf \{ c>0: \mu\{|f_n-f| > c \} <c \} < \epsilon \]
+		therefore $f_n\to f$ in measure.
+	\end{proof}
+\end{enumerate}
+
+\item
+\begin{proof}
+Let $E \subset [a,b]$ be Borel measurable with $\lambda(E)>0$. Let $\{q_n\}$ be an enumeration of the rational numbers in the interval $[0,1]$. Set
+	\[ F = \bigcup_{n} (E + q_n) \]
+If $\{E+q_n\}$ are all disjoint, then, $\lambda(F) = \sum_{n=1}^\infty \lambda(E+q_n) = \sum_{n=1}^\infty \lambda(E) = \infty$ since $\lambda(E) >0$. But this is a contradiction since $F \subseteq [a,b+1]$ which has finite Lebesgue measure. Thus there exists $x \in (E+q_n) \cap (E+q_m)$ for some $n$ and $m$ not equal (so $q_n \ne q_m$). Then, there exists $y,z \in E$ such that
+	\[ y+q_n = x = z+q_m \]
+so $y-z = q_m-q_n \in \mathbb{Q} \backslash \{0\}$.
+\end{proof}
+
+\item \begin{enumerate}[(a)]
+	\item False. Consider the following function with a ``spike'' at every natural number, $n \ge 2$.
+			\[ f(x) := \left\{ \begin{array}{ll} \text{lin}\nearrow & n \le x \le n + \dfrac 1{n^3} \\
+				n & x= n+ \dfrac 1{n^3} \\
+				\text{lin}\searrow & n + \dfrac 1{n^3} \le x \le n + \dfrac 2{n^3} \\
+				0 & \text{else} \end{array} \right. \]
+		Notice that
+			\[ \int_\bbr f(x) \, dx = \sum_{n=2}^\infty \dfrac 12 \cdot \dfrac 2{n^3} \cdot n = \sum_{n=2}^\infty \dfrac1{n^2} < \infty \]
+		but
+			\[ \limsup_{x \to \infty} |f(x)| = \infty \]
+	\item \begin{proof}
+		Let $f$ be integrable and differentiable and let $D >0$ such that $|f'(x)| \le D$ for all $x \in \bbr$. 
+		Fix $x \in \bbr$. Using the mean-value theorem, for all $y \in \bbr$ such that
+			\[ |x-y| \le \dfrac{f(x)}{D}, \]
+		we know that
+			\[ f(y) \ge f(x)-|x-y|D \]
+		Suppose without loss of generality that
+			\[ \limsup_{x\to\infty} f(x)  = M \]
+		for some $M >0$. Then for all $n \in \bbn$, there exists $x_n \ge n$ such that
+			\[ f(x_n) \ge \dfrac M2 \]
+		Then,
+			\[ \int_\bbr f(x) \, dx \ge \sum_{n=1}^\infty \dfrac 12 \cdot \min \left\{ \dfrac{f(x_n)}{D}, 1\right\} \cdot f(x_n) \ge \sum_{n=1}^\infty \dfrac 18 \cdot \min\left\{ \dfrac{M}{D},1\right\} \cdot M = \infty \]
+		which contradicts the fact that $f$ is integrable.
+	\end{proof}
+\end{enumerate}
+
+\item \begin{proof} (a $\implies$ b)
+	\[ \sum_{k=-\infty}^\infty 2^k m(F_k) = \sum_{k=-\infty}^\infty \int_{F_k} 2^k \, dm \le \sum_{k=-\infty}^\infty \int_{F_k} f \, dm = \int_\bbr f \, dm \]
+	
+(b $\implies$ c) First, notice that $E_k \cup F_{k-1} = E_{k-1}$ and the union is disjoint therefore
+	\[ m(F_k) = m(E_{k+1})-m(E_k) \]
+Mutliply by $2^k$ and sum from $-N$ to $N$ we have
+	\[\sum_{k=-N}^N 2^k m(F_k) = \sum_{k=-N}^N 2^k m(E_{k+1}) - \sum_{k=-N}^N 2^k m(E_k) = \dfrac 12 \sum_{k=-N}^N 2^{k+1}k m(E_{k+1}) - \sum_{k=-N}^N 2^k m(E_k) \]
+	\[= -\dfrac 12 \sum_{k=-N+1}^{N-1}2^k m(E_k) + 2^N m(E_{N+1}) - 2^{-N}m(E_{-N}) \]
+The final two terms can be bounded by $\int f$: $2^N m(E_N) \le \int_{E_N} f \, dm \le \int_\bbr f \, dm <\infty$. Therefore,for any $N$,
+	\[ \sum_{k=-(N-1)}^{N-1} 2^k m(E_k) \le -2 \sum_{k=-\infty}^\infty 2^k m(F_k) + 4 \int_\bbr f \, dm  <\infty\]
+(c $\implies$ a) Notice that since $f$ is non-negative, $\bbr = \{ f=0 \} \cup E_k $.
+	\[ \int f \, dm = \sum_{k=-\infty}^\infty \int_{F_k} f \, dm \le \sum_{k=-\infty}^\infty \int_{F_k} 2^{k+1} \, dm = 2 \sum_{k=-\infty}^\infty m(F_k) \le 2 \sum_{k=-\infty}^\infty m(E_k) \]
+\end{proof}
+
+\end{enumerate}

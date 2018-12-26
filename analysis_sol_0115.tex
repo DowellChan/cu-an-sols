@@ -1,0 +1,130 @@
+\begin{itemize}
+\item[1.] \begin{proof}
+	For $u = 1+n^2x^2$, $du = 2n^2x \, dx$,
+	\[ ||f_n-0||_1 = \int_0^1 \dfrac{nx}{1+n^2x^2} \, dx = \int_1^2 \dfrac{du}{2nu} = \dfrac{1}{2n} [\ln(2)-\ln(1)] \to 0\]
+	as $n \to \infty$. Therefore $f_n \to 0$ in $L^1[0,1]$. Now, since $||\cdot||_\infty$ and $||\cdot||_{\sup}$ coincide on continuous functions,
+	\[ ||f_n-0||_\infty = \sup_{x \in [0,1]} |f_n(x)| \ge f_n(n^{-3/2}) = \dfrac{n^{-1/2}}{1+n^{-1}} \to \infty \]
+	as $n \to \infty$. So $f_n \not\to 0$ in $L^\infty[0,1]$.
+\end{proof}
+
+\item[2.] \begin{proof}
+	Let $f$ be convex. Let $x_n \searrow x$. Then, define $t_n \in [0,1]$ by
+		\[ (1-t_n)1+t_nx = x_n \]
+	Notice that $t_n\to 1$ as $n \to \infty$. Then,
+		\[ f(x_n) = f(t_nx+(1-t_n)1) \le t_nf(x)+(1-t_n)f(1) \]
+	also define $s_n \in [0,1]$ such that
+		\[ (1-s_n)(-1) + s_nx_n = x \]
+	then $s_n \to 1$ as $n \to \infty$ so
+		\[ f(x) = f(s_nx_n + (1-s_n)(-1)) \le s_nf(x_n) + (1-s_n)f(-1) \]
+	Combining this, we get
+		\[ f(x) \le s_nf(x_n) + (1-s_n)f(-1) \le s_nt_nf(x)+s_n(1-t_n)f(1) + (1-s_n)f(-1) \]
+	Notice that the RHS converges to $f(x)$ as $n \to \infty$ so by the Squeeze theorem
+		\[ \lim_{n\to\infty} f(x_n) = f(x) \]
+	So $f$ is right continuous. To show left continuity, we follow the same steps but modify $t_n$ and $s_n$ so they are convex combiniations with the opposite endpoints. Therefore $f$ is continuous.
+\end{proof}
+
+\item[3.] \begin{proof}
+	For each $n \in \bbn$ there exists $x_n \in X$ such that
+		\[ d(x_n,f(x_n)) < \dfrac 1n \]
+	Since $X$ is compact, there exists a convergent subsequence $\{x_{n_k}\}_{k=1}^\infty$ with limit $x$. Then,
+		\[ d(x,f(x)) \le d(x,x_{n_k}) + d(x_{n_k},f(x_{n_k})) + d(f(x_{n_k}),f(x)) \to 0\]
+	as $k \to \infty$ by construction of $x_{n_k}$ and since $f$ is continuous. Thus $f(x)=x$.
+\end{proof}
+
+\item[4.] \begin{enumerate}[(a)] 
+	\item \begin{proof}
+	Let $\{y_n\} \subseteq Y$ be Cauchy. There exists $\{x_n\} \subseteq X$ such that $f(x_n)=y_n$ for all $n \in \bbn$. Then $\{x_n\}$ is Cauchy and therefore convergent to some $x\in X$. Then,
+		\[ \lim_{n\to\infty} y_n = \lim_{n \to \infty} f(x_n) = f(x) \in Y \]
+	\end{proof}
+	\item False. Let $X=(0,1)$, $Y=\bbr$. Let $d_Y=d_X = |(\cdot) - (\cdot)|$. Let $f(x) = 1/x$. Then, clearly
+		\[ |x_1-x_2| \le \left| \dfrac{x_1}{x_1x_2} - \dfrac{x_2}{x_1x_2} \right| = |f(x_2)-f(x_1)| \]
+	so the inequality holds. Additionally, $Y$ is complete but $X$ is not.
+\end{enumerate}
+
+\item[5.] \begin{proof}
+		\[ ||S(a)||_2 = \sqrt{\sum_{n=1}^\infty s_n^2a_n^2} \le ||s||_\infty ||a||_2 \]
+	For each $k \in \bbn$, there exists $s_{n_k} \in s$ such that
+		\[|s_{n_k}| > ||s||_\infty - \dfrac 1k \]
+	Then, consider $e_{n_k} = (0, \ldots, 0\overset{n_k}{1}, 0, \ldots ) \in \ell^2$. $||e_{n_k}||_2 = 1$ so
+		\[ ||S(e_{n_k})||_2 = |s_{n_k}| > ||s||_\infty -\dfrac 1k \]
+	for all $k \in \bbn$ thus
+		\[ ||S|| = ||s||_\infty \]
+\end{proof}
+
+\item[6.] \begin{proof}
+	First, notice that $T$ is bounded below:
+		\[ ||x||^2 \le \lip Tx,x \rip \le ||Tx|| \cdot ||x|| \]
+	so, $ ||Tx|| \ge ||x||$ for all $x \in \calh$. Now, we show one-to-one. Let $x \in \calh$ such that $Tx=0$. Then,
+		\[ 0 = ||Tx|| \ge ||x||_{\calh} \ge 0\]
+	so $x=0$. Next, we show $T$ has a closed range. Let $x_n \in \calh$ such that $Tx_n \to y$ for some $y \in \calh$. Then, 
+		\[ ||Tx_n-Tx_m|| \ge ||x_n-x_m|| \]
+	for all $n,m \in \mathbb{N}$. So, $\{x_n\}$ is Cauchy. Thus, there exists $x \in \calh$ such that $x_n \to x$. Since $T$ is bounded,
+		\[ y = \lim_{n \to \infty} Tx_n = Tx \]
+	so $y \in \text{Ran}T$. Finally, we show $T$ is onto. 
+%	Recall, for $z \in \calh$,
+%		\[ d(z,\text{Ran}T) = \max_{\substack{w \in (\text{Ran}T)^\perp \\ ||w|| \le 1 } } | \lip z,w \rip | \]
+%	However, 
+	For $w \in (\text{Ran}T)^\perp$
+		\[ \lip Tv,w \rip = 0 \]
+	for all $v \in \calh$. In particular, for $v=w$,
+		\[ 0= \lip Tw,w \rip \ge ||w|| \ge 0 \]
+	which implies $w=0$. Thus, $(\text{Ran}T)^\perp = \{ 0 \}$ so $\text{Ran}T = \overline{\text{Ran}T} = \calh$. We have $T$ is one-to-one and onto therefore is it invertible so $Tx=y$ has a unique solution for every $y \in \calh$.
+\end{proof}
+
+
+\item[7.] Solution by Hao Chen and Walton Green (4/18)
+\begin{proof}
+	We will prove the contrapositive of the statement. Suppose $\{E_k\}_{k=1}^n$ are Borel subsets of $[0,1]$ such that 
+	\[ \lambda \left( \bigcap_{k=1}^n E_k \right) = 0 \]
+	Then, we have that
+	\[ 1 = \lambda([0,1]) = \lambda \left[ \left( \bigcap_{k=1}^n E_k \right)^c \right]= \lambda \left(\bigcup_{k=1}^n E_k^c \right) \]
+	Therefore,
+	\[ n = \sum_{k=1}^n \lambda([0,1]) = \sum_{k=1}^n \lambda(E_k) + \lambda(E_k^c) \ge \sum_{k=1}^n\lambda ( E_k ) + \lambda \left( \bigcup_{k=1}^n E_k^c \right) = \sum_{k=1}^n\lambda ( E_k ) + 1 \]
+	so $ \sum_{k=1}^n \lambda(E_k) \le n-1$.
+\end{proof}
+
+\item[8.] Let $\{q_n\}_{n=1}^\infty \subseteq \bbr$ be an enumeration of the rational numbers. Then, let
+		\[ U := \bigcup_{n=1}^\infty \left(q_n-\dfrac 1{n^2}, q_n+\dfrac 1{n^2}\right) \]
+	So,
+		\[ \lambda(U) \le \sum_{n=1}^{\infty} \dfrac{2}{n^2} = 2 < \infty \]
+	and $U \subseteq \bbr$ is open. Now, notice that $\bar U=\bbr$ since $\bbq$ is dense in $\bbr$ and $\bbq \subseteq U$. Then,
+		\[ \lambda (\partial U) = \lambda(\bar U \backslash U) = \infty \]
+
+
+\item[9.] \phantomsection\label{q:w15-9}\begin{proof}
+	($\Rightarrow$) let $\lambda(E) = M>0$. Let $f_n \overset{\lambda}{\to} 0$. Then, for all $\epsilon >0$, there exists $N \in \bbn$ such that
+		\[ \inf\left\{ c>0 : \lambda\{|f_n|>c\} < c \right\} < \epsilon \]
+	for all $n \ge N$ which implies
+		\[ \lambda \{ |f_n| >\epsilon \} < \epsilon \]
+	Now, we will use the fact that
+		\[ x \mapsto \dfrac x{x+1} \]
+	is monotone increasing and $\le 1$.
+		\begin{align*}
+			\int_E \dfrac{|f_n|}{1+|f_n|} &= \int_{E \cap \{|f_n|>\epsilon\}} + \int_{E \cap \{|f_n|<\epsilon\}} \dfrac{|f_n|}{1+|f_n|} \\
+			&\le \int_{E \cap \{|f_n|>\epsilon\}} 1 + \int_{E} \dfrac{\epsilon}{1+\epsilon} \\
+			&\le \lambda\{|f_n| > \epsilon\} + \lambda(E)\left(\dfrac{\epsilon}{1+\epsilon}\right) \\
+			&< \epsilon + M\left(\dfrac{\epsilon}{1+\epsilon}\right) \to 0
+		\end{align*}
+	as $\epsilon \to 0$. \\
+	($\Leftarrow$) Let $\epsilon >0$. There exists $N \in \bbn$ such that
+		\[ \dfrac{\epsilon^2}{1+\epsilon} > \int_E \dfrac{|f_n|}{1+|f_n|} \ge \int_{\{|f_n|>\epsilon\}}\dfrac{|f_n|}{1+|f_n|} \ge \int_{\{|f_n|>\epsilon\}}\dfrac{\epsilon }{1+\epsilon} = \lambda\{|f_n|>\epsilon \}\dfrac{\epsilon }{1+\epsilon} \]
+	so
+		\[ \lambda\{|f_n|>\epsilon\} < \epsilon\]
+	for all $n \ge N$. Thus,
+		\[ ||f_n||_\lambda = \inf\{ c >0 : \lambda\{|f_n|>c\}<c\} <\epsilon \]
+\end{proof}
+
+\item[10.] \phantomsection\label{q:w15-10}\begin{proof}
+	Define
+		\[ F_i := \bigcup_{n=i}^\infty E_n \]
+	for each $i \in \bbn$. Notice that $F_i$ are reverse nested (i.e. $F_{i+1} \subseteq F_i$ therefore $F_i^c \subseteq F_{i+1}^c$) Then,
+		\[ \mu(F_i) = \mu\left(\bigcup_{n=i}^\infty E_n \right) \le \sum_{n=i}^\infty \mu(E_n) \to 0 \]
+	as $i \to \infty$. Now,
+		\begin{align*}
+			 \mu\left( \bigcap_{k=1}^\infty \bigcup_{n=k}^\infty E_n \right) &= \mu \left( \bigcap_{k=1}^\infty F_k \right) = \mu\left( F_1 \cap \bigcap_{k=2}^\infty F_k \right) = \mu\left( F_1 \backslash \bigcup_{k=2}^\infty F_k^c \right)\\
+			&= \mu(F_1) - \mu\left(\bigcup_{k=2}^\infty F_k^c \right)= \mu(F_1) - \lim_{k\to\infty} \mu(F_k^c) \\[1mm]
+			&= \lim_{k\to\infty} \mu(F_1\backslash F_k^c) = \lim_{k\to\infty}\mu(F_1 \cap F_k) \\[2mm]
+			&= \lim_{k\to\infty}\mu(F_k) = 0
+		\end{align*}
+\end{proof}
+\end{itemize}
