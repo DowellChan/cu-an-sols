@@ -41,4 +41,29 @@ Counterexample: $E=(0,1)$ and $f(x)=1/x$. $f(E) = (1,\infty)$.
 		which goes to $0$ as $n \to \infty$.
 		\end{proof}
 	\end{itemize}
+    
+\item[9.]
+    \begin{itemize}
+        \item[(a)] There exists $\ep_n \searrow 0$ such that
+            \[ \mu\{ |f-g| \ge \ep_n\} \le \ep_n \]
+        Then,
+            \[ \mu\{f \ne g\} = \mu\{|f-g| >0\} = \mu \left(\bigcup_n \{ |f-g| \ge \ep_n\} \right) \]
+            \[= \lim_{n \to \infty} \mu\{|f-g| \le \ep_n\} \le \lim_{n \to \infty} \ep_n =0 \]
+        \item[(b)] We only need to show the triangle inequality. Let $t,s >0$, $f,g,h$ measurable functions.
+            
+        If $|f-h| \le t$ and $|g-h| \le s$, then
+	        \[ |f-g| \le |f-h|+|g-h| \le t+s \]
+        Thus, $\{|f-h| \le t\} \cap \{|g-h| \le s\} \subset \{|f-g| \le t+s\}$. Then, taking complements, we have
+	        \[ \{|f-h| > t\} \cup \{|g-h| > s\} \supset \{ |f-g| > t+s\} \]
+        Therefore, $\mu\{|f-g| > t+s\} \le \mu\{|f-h| >t\} + \mu\{|g-h| >s\}$. Let $\delta>0$. There exists $\ep_1,\ep_2$ such that
+            \[\mu\{|f-h| > \ep_1\} < \ep_1 \mbox{ and } \ep_1 < \rho(f,h)+\delta/2 \]
+        and similarly for $\ep_2$ and $|g-h|$. Therefore,
+            \[ \mu\{|f-g| > \ep_1+\ep_2\}\le \mu\{|f-h| >\ep_1\} + \mu\{|g-h| >\ep_2\} < \ep_1+\ep_2 \]
+        So,
+            \begin{align*} \rho(f,g) &= \inf\{ \ep : \mu\{|f-g| >\ep\} < \ep \} \\
+            &\le \ep_1+\ep_2 \\
+            &\le \rho(f,h)+\rho(g,h) +\delta
+            \end{align*}
+        for any $\delta>0$. This proves the Triangle Ineqaulity.
+    \end{itemize}
 \end{itemize}
