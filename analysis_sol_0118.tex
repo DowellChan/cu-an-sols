@@ -1,0 +1,128 @@
+
+
+
+\begin{itemize}
+		\begin{center}
+			\Large{\textbf{Analysis Prelim Solution - Winter 2018}}
+			\normalsize{\\Yiran Zhu | Clemson - Math}
+		\end{center}
+		\item[1.] Let $\mathcal{C}(0, 1)$ be the collection of all continuous functions on $(0, 1)$ which is a unit \textit{open} interval in $\mathbb{R}$. Suppose $\{f_n\}_{n=1}^\infty \subset \mathcal{C}(0, 1)$ converges uniformly to $f$ on $(0, 1)$, i.e.,
+		$$\lVert f_n -f\rVert_\infty = \sup_{t\in (0,1)} |f_n(t)-f(t)| \rightarrow 0 \text{ as } n \rightarrow \infty.
+		$$
+		Can we say $f \in \mathcal{C}(0, 1)$? Prove or disprove.
+
+		\begin{proof}
+			Fix $x\in (0,1)$. Observe that $\forall y\in (0,1)$, 
+			$$
+			\begin{aligned}
+			\lvert f(x) - f(y) \rvert &\le  \lvert f(x) - f_n(x) \rvert + \lvert f_n(x) - f_n(y) \rvert + \lvert f_n(y) - f(y)\rvert\\
+			&\le 2\lVert f_n- f\rVert +  \lvert f_n(x) - f_n(y) \rvert 
+			\end{aligned}
+			$$
+			For $\epsilon >0$, there exists $N\ge 1$ such that $\lVert f_N-f\rVert < \epsilon/3$. Furthermore, since $f_N$ is continuous, there exists $\delta >0$ such that $\forall \lvert x-y\rvert < \delta, ~~|f_N(x) - f_N(y)|<\epsilon/3$.
+			$$
+			\forall |x-y|< \delta, ~~\lvert f(x) - f(y) \rvert \le 2\lVert f_N- f\rVert +  \lvert f_N(x) - f_N(y) \rvert  < \epsilon
+			$$
+			Therefore $f$ is continuous at $x$. Since $x$ can be a arbitrary number in $(0,1)$, $f \in \mathcal{C}(0,1)$.
+		\end{proof}
+		
+		\item[2.] Easy to show. $\lVert f\rVert_\infty \le \lVert f-f_n\rVert_\infty + \lVert f_n\rVert_\infty \le \epsilon + M < \infty$.
+		
+		\item[3.] If $x\in Y^\perp$, then $\lVert x-y\rVert^2 = \lVert x\rVert^2 +  \lVert y\rVert^2 \ge \lVert x\rVert^2$. Conversely, since $Y$ is a closed subspace, $H= Y\oplus Y^\perp$. There exists $x' \in Y$ and $x^\perp \in Y^\perp$ such that $x = x'+x^\perp$. Then 
+		$$
+		\lVert x^\perp \rVert^2=\lVert x - x'\rVert^2 = \lVert x\rVert^2 = \lVert  x'+x^\perp\rVert^2 =  \lVert x'\rVert^2+\lVert x^\perp\rVert^2
+		$$
+		Therefore, $\lVert x'\rVert^2 = 0 \Rightarrow x' = 0 \Rightarrow x= x^\perp \in Y^\perp$.
+		
+		\item[4.]  Given a Cauchy sequence $\{T_n\}_n\subseteq \mathcal{B}(X,Y)$ with respect to norm of operators, we need to construct an operator $T$ such that $T_n\rightarrow T$. Note that, for all $x\in X$, $\{T_n(x)\}_n$ is a Cauchy sequence in $Y$ and thus convergent to some point in $Y$. We denote this extreme point by $T_x$. Our mapping is $T: x\rightarrow T_x$. Then one can easily check $T$ is linear and also bounded so $T\in \mathcal{B}(X,Y)$. Finally, $T_n\rightarrow T$ in operator norm. 
+		
+		\item[5.] \begin{enumerate}[(a)]
+			\item $\lVert T\rVert  =1$. This norm cannot be attained but can be approached by $e_n$ when $n\rightarrow \infty$.
+			$$
+			\left\lVert T(x) \right\rVert = \left\lvert \sum_{n=1}^\infty \left(1-\frac{1}{n}\right)x_n  \right\rvert \le  \sum_{n=1}^\infty \left(1-\frac{1}{n}\right) \left\lvert  x_n  \right\rvert  \le \lVert x\rVert_1
+			$$
+			
+			\item Suppose there exists $x$ with $\lVert x\rVert \le 1$ such that $|T(x)| = \lVert T\rVert = 1 \ge \lVert x\rVert$. From above inequality, we essentially have
+			$$
+			\lVert x_1\rVert = \sum_{n=1}^\infty \left(1-\frac{1}{n}\right) \left\lvert  x_n  \right\rvert = \lVert x\rVert_1 - \sum_{n=1}^\infty \frac{|x_n|}{n}
+			$$
+			Hence
+			$$
+			\sum_{n=1}^\infty \frac{|x_n|}{n} = 0 \Rightarrow  \forall n\ge 1,~ x_n=0 \Rightarrow |T(x)| = 0 \neq 1
+			$$
+		\end{enumerate}
+		
+		\item[6.] Prove by contradiction. Suppose there is a such measure $(H, \mathcal{M}, \lambda)$ for Hilbert Space $H$. Let $r=2$ and $x=0$, 
+		$$
+		0<\lambda\left(B_2(0)\right)<\infty
+		$$
+		Since $\dim H =\infty$, there is an orthonormal sequence $\{x_n\}_n\subseteq B_2(0)$. For all $x_n$, we claim that $B_{1}(x_n)\subseteq B_2(0)$. Indeed,
+		$$
+		\forall y\in B_{1/2}(x_n), \lVert y-0\rVert \le  \lVert y-x_n\rVert + \lVert x_n\rVert \le 1/2 + 1 = 3/2 < 2 \Rightarrow y\in B_2(0)
+		$$
+		Observe that $\lVert x_n - x_m \rVert ^2 = \langle x_n-x_m, x_n-x_m\rangle = \lVert x_n\rVert^2 + \lVert x_m\rVert^2 = 2$ for all $n\neq m$. Moreover, if $n\neq m$, then we can check that $B_{1/2}(x_n) \cap B_{1/2}(x_m) = \emptyset$ as follows:
+		$$
+		\forall y\in B_{1/2}(x_n), \lVert y_n - x_m \rVert \ge \lVert x_n -x_m \rVert - \lVert y-x_n\rVert = \sqrt{2} - \frac{1}{2}  > \frac{1}{2} \Rightarrow y\not \in B_{1/2}(x_m) 
+		$$
+		By assumption that measure of balls is invariant under translation, we have 
+		$$\forall n\ge 1, ~\lambda(B_{1/2}(x_n)) = \lambda(B_{1/2}(x_1))$$
+		Note that $\cup_{n=1}^\infty B_{1/2}(x_n)$, the union of disjoint balls, is a subset of $B_2(0)$. 
+		$$
+		\lambda(B_2(0)) \ge \lambda\left( \cup_{n=1}^\infty B_{1/2}(x_n)\right) =\sum_{n=1}^\infty \lambda(B_{1/2}(x_n)) = \sum_{n=1}^\infty \lambda(B_{1/2}(x_1))
+		$$
+		Therefore, $\lambda(B_{1/2}(x_1)) = 0$. However, we assume that measure of a ball is greater than 0.
+		
+		\item[7.] Let $(X,\mathcal{M}, \mu)$ be a measure space and $f \in L^1(X,\mathcal{M}, \mu)$. Then $\{x : f(x) \neq 0\}$ is
+		$\sigma$-finite with respect to $\mu$.
+
+		\begin{proof}
+			Let $E_n = \{x: |f(x)| \ge 1/n \}$ and then $\{x: f(x)\neq 0\} = \cup_{n=1}^\infty  E_n$. From Chebyshev's Inequality, 
+			$$
+			\frac{ \mu(E_n)}{n} \le  \int_X |f| d\mu < \infty ~\Rightarrow~ \mu(E_n) < \infty
+			$$	
+			Therefore, $\{x : f(x) \neq 0\}$ is $\sigma$-finite.
+		\end{proof}
+	
+		\item[8.] 
+		\begin{enumerate}[(a)]
+			\item Observe that 
+			$$
+			\bigcup_{n=1}^\infty E_n = \{x\in I: f(x) > 0\} \Rightarrow \lambda(\{x\in I: f(x) > 0\}) \le \sum_{n=1}^\infty \lambda(E_n)
+			$$
+			So $\lambda(\{x\in I: f(x) > 0\}) > 0$ implies that there $\lambda(E_n)>0$ for some $n$.
+			
+			\item This is also obvious. We show that $\lambda(E_n) = 0$ for all $n\ge 1$. Then the inequality derived in part (a) asserts that $\lambda(\{x\in I: f(x) > 0\}) = 0$. Suppose $\lambda(E_n) > 0$ for some $n$, then we pick a finite set $\{x_1,\ldots, x_m\}\subseteq E_n$ where $m = 2Mn$. 
+			$$
+			\sum_{n=1}^m f(x_n) \ge \sum_{n=1}^m \frac{1}{n} = 2M > M
+			$$ 
+			However, by assumption, $\sum_{n=1}^m f(x_n) \le M$. Therefore, $\lambda(E_n) = 0$ holds for all $n\ge 1$.
+		\end{enumerate}
+		
+		
+		\item[9.] This is a direct application of \textit{Monotone Convergence Theorem}. Let $h_m(x) = \sum_{n=1}^m f(x+n)$. 
+		$$
+		0\le h_1(x)\le h_2(x) \le \ldots \le h_m(x)\le h_{m+1}(x)\le \ldots;~~\lim_{m\rightarrow \infty} h_m(x) = \sum_{n=1}^\infty f(x+n) = g(x)
+		$$
+		\textit{Monotone Convergence Theorem} says
+		$$
+		\lim_{m\rightarrow \infty} \int_\mathbb{R} h_m(x) d\mu= \int_{\mathbb{R}} \lim_{m\rightarrow \infty} h_m(x) d\mu= \int_{\mathbb{R}} g(x) d\mu
+		$$
+		Let's compute the left hand side,
+		$$
+		\int_{\mathbb{R}} h_m(x) d\mu = \int_{\mathbb{R}} \sum_{n=1}^m f(x+n) d\mu = \sum_{n=1}^m \int_{\mathbb{R}} f(x+n)d\mu = m\int_{\mathbb{R}} f(x) d\mu 
+		$$
+		Recall that Lebesgue measure is invariant under translation. Combine above two equations, 
+		$$
+		\lim_{m\rightarrow \infty} m\int_{\mathbb{R}}f(x)d\mu = \int_{\mathbb{R}} g(x)d\mu < \infty \Rightarrow \int_{\mathbb{R}} f(x) d\mu=0
+		$$
+		Since $f(x)$ is nonnegative, $\int_{\mathbb{R}}f d\mu = 0$ is equivalent to $f=0$ a.e.
+		
+		\item[10.] \begin{enumerate}[(a)]
+			\item This is a immediate result of Cauchy-Schwartz Inequality.
+			$$
+			\left(\int_B f d\mu\right)^2 = \left(\int_X f\chi_B d\mu\right)^2 \le \left(\int_X f^2d\mu  \right)\left(\int_X \chi_B^2d\mu \right) = \mu_B \int_X f^2d\mu 
+			$$
+			
+			\item Let $f = \sum_{k=1}^n \chi_{A_k}$ where $\chi_{A_k}$ is a characteristic function of measurable set $A_k$. Furthermore, let $B =\cup_{k=1}^nA_k$. This inequality holds directly from part (a). 
+		\end{enumerate}
+\end{itemize}
