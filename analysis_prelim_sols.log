@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.12.25)  7 JAN 2019 23:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.12.25)  7 JAN 2019 23:55
 entering extended mode
 **./analysis_prelim_sols.tex
 (analysis_prelim_sols.tex
@@ -518,7 +518,7 @@ Here is how much of TeX's memory you used:
  10304 multiletter control sequences out of 15000+200000
  13064 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,10n,32p,559b,659s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,10n,32p,555b,659s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Yiran/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/Yiran/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmex10.pfb><C:/Users/Yiran/AppData/Local/Programs/MiKTeX 2.9/f
@@ -537,7 +537,7 @@ sers/Yiran/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Users/Yiran/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti12.pfb><C:/Users/Yiran/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on analysis_prelim_sols.pdf (48 pages, 345806 bytes).
+Output written on analysis_prelim_sols.pdf (48 pages, 345781 bytes).
 PDF statistics:
  486 PDF objects out of 1000 (max. 8388607)
  162 named destinations out of 1000 (max. 500000)

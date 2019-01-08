@@ -34,10 +34,10 @@
 		$$
 		Therefore, $\lVert x'\rVert^2 = 0 \Rightarrow x' = 0 \Rightarrow x= x^\perp \in Y^\perp$.
 		
-		\item[4.]  Given a Cauchy sequence $\{T_n\}_n\subseteq \mathcal{B}(X,Y)$ with respect to norm of operators, we need to construct an operator $T$ such that $T_n\rightarrow T$. Note that, for all $x\in X$, $\{T_n(x)\}_n$ is a Cauchy sequence in $Y$ and thus convergent to some point in $Y$. We denote this extreme point by $T_x$. Our mapping is $T: x\rightarrow T_x$. Then one can easily check $T$ is linear and also bounded so $T\in \mathcal{B}(X,Y)$. Finally, $T_n\rightarrow T$ in operator norm. 
+		\item[4.]  Given a Cauchy sequence $\{T_n\}_n\subseteq \mathcal{B}(X,Y)$ with respect to operator norm, we need to construct an operator $T$ such that $T_n\rightarrow T$. Note that, for all $x\in X$, $\{T_n(x)\}_n$ is a Cauchy sequence in $Y$ and thus convergent to some point in $Y$. We denote this extreme point by $T_x$. Our mapping is $T: x\rightarrow T_x$. Then one can easily check $T$ is linear and also bounded so $T\in \mathcal{B}(X,Y)$. Finally, $T_n\rightarrow T$ in operator norm. 
 		
 		\item[5.] \begin{enumerate}[(a)]
-			\item $\lVert T\rVert  =1$. This norm cannot be attained but can be approached by $e_n$ when $n\rightarrow \infty$.
+			\item $\lVert T\rVert  =1$. This norm cannot be attained but can be approached by $e_n$ as $n\rightarrow \infty$.
 			$$
 			\left\lVert T(x) \right\rVert = \left\lvert \sum_{n=1}^\infty \left(1-\frac{1}{n}\right)x_n  \right\rvert \le  \sum_{n=1}^\infty \left(1-\frac{1}{n}\right) \left\lvert  x_n  \right\rvert  \le \lVert x\rVert_1
 			$$
@@ -56,7 +56,7 @@
 		$$
 		0<\lambda\left(B_2(0)\right)<\infty
 		$$
-		Since $\dim H =\infty$, there is an orthonormal sequence $\{x_n\}_n\subseteq B_2(0)$. For all $x_n$, we claim that $B_{1}(x_n)\subseteq B_2(0)$. Indeed,
+		Since $\dim H =\infty$, there is an orthonormal sequence $\{x_n\}_n\subseteq B_2(0)$. For all $x_n$, we claim that $B_{1/2}(x_n)\subseteq B_2(0)$. Indeed,
 		$$
 		\forall y\in B_{1/2}(x_n), \lVert y-0\rVert \le  \lVert y-x_n\rVert + \lVert x_n\rVert \le 1/2 + 1 = 3/2 < 2 \Rightarrow y\in B_2(0)
 		$$
