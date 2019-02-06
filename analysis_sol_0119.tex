@@ -47,7 +47,7 @@
 	$$
 	Combine above two inequalities to claim
 	$$
-	\forall n\ge  N, d(a^*,b^*)-d(A,B) < d(a^*, a_{n,2}) + d(b^*, b_{n,2})  +\epsilon
+	\forall n\ge  N, ~d(a^*,b^*)-d(A,B) < d(a^*, a_{n,2}) + d(b^*, b_{n,2})  +\epsilon
 	$$
 	Let $n\rightarrow \infty$, we conclude $ d(a^*,b^*)-d(A,B) <\epsilon$. 
 	Since $\epsilon$ can be arbitrarily small, $d(a^*,b^*)\le d(A,B)$. Recall that, by definition, $d(A,B)\le d(a^*,b^*) ~\Rightarrow~ d(A,B)=d(a^*,b^*)$.
@@ -111,9 +111,12 @@
 	$$
 	Let $n\rightarrow \infty$, the left hand side goes to $0$ and hence $\lim_{n\rightarrow\infty} m(E_n\cap A_k)=0$. As a consequence,
 	$$
-	\lim_{n\rightarrow\infty} \sum_{k=1}^N m(E_n\cap A_k) = \sum_{k=1}^N \lim_{n\rightarrow\infty} m(E_n\cap A_k) = 0 ~\Rightarrow~ \lim_{n\rightarrow\infty} m(E_n) \le \epsilon
+	\lim_{n\rightarrow\infty} \sum_{k=1}^N m(E_n\cap A_k) = \sum_{k=1}^N \lim_{n\rightarrow\infty} m(E_n\cap A_k) = 0 ~\Rightarrow~ \limsup_{n\rightarrow\infty} m(E_n) \le \epsilon
 	$$
-	As $\epsilon$ can be arbitrarily small, $\lim_{n\rightarrow\infty} m(E_n) = 0$.
+	As $\epsilon$ can be arbitrarily small, $\limsup_{n\rightarrow\infty} m(E_n) = 0$. Observe that
+	$$
+	0\le \liminf_{n\rightarrow \infty}m(E_n) \le \limsup_{n\rightarrow \infty} m(E_n) =0 ~\Rightarrow~ \lim_{n\rightarrow\infty} m(E_n)\text{ exists and } \lim_{n\rightarrow\infty} m(E_n)=0
+	$$
 	\item[8.] By Cauchy inequality, we have
 	$$
 	\left\lvert L \right\rvert := \left\lvert\int_{0}^1  \left(f(x) -\cos(2\pi x)\right)\left(f(x) -\sin(2\pi x)\right) dx \right\rvert \le \sqrt{L_1L_2} = \frac{1}{9}
@@ -138,13 +141,22 @@
 	$$ 
 	Since $\lvert xf(x)\rvert \rightarrow 0$ as $x\rightarrow \infty$. For $\epsilon > 0$, there exists a number $N_\epsilon >0$ such that $\forall x\ge N_\epsilon,~\lvert xf(x)\rvert<\epsilon$. Now, for each fixed $n \ge N_\epsilon$, we construct a set $A_n = \{y\in [0,1]:~ny^2\ge N_\epsilon \} = \left[\sqrt{N_\epsilon/n}, 1\right]$ and $B_n = [0,1]\backslash A_n = \left[0, \sqrt{N_\epsilon/n}\right]$. Then
 	$$
-	\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert = \left\lvert\int_{\sqrt{N_\epsilon/n}}^1 ny^2f(ny^2)dy+ \int_{0}^{\sqrt{N_\epsilon/n}} ny^2f(ny^2)dy\right\rvert \le \epsilon \left(1-\sqrt{N_\epsilon/n}\right) + M\sqrt{N_\epsilon/n} 
+	\begin{aligned}
+		\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert &= \left\lvert\int_{\sqrt{N_\epsilon/n}}^1 ny^2f(ny^2)dy+ \int_{0}^{\sqrt{N_\epsilon/n}} ny^2f(ny^2)dy\right\rvert \\&\le \epsilon \left(1-\sqrt{N_\epsilon/n}\right) + M\sqrt{N_\epsilon/n} \\
+		&\le \epsilon + M\sqrt{N_\epsilon/n}
+	\end{aligned}
 	$$
 	where $M$ is the upper bound for $f(x)$ on $[0,1]$. We conclude that 
 	$$
-	\forall n\ge M^2N_\epsilon/\epsilon^2, ~~ \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le  \epsilon \left(1-\sqrt{N_\epsilon/n}\right) + M\sqrt{N_\epsilon/n} \le \epsilon +  M\sqrt{N_\epsilon/n}\le 2\epsilon
+	\forall n\ge M^2N_\epsilon/\epsilon^2, ~~ \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le  \epsilon +  M\sqrt{N_\epsilon/n}\le 2\epsilon
 	$$
-	Since $\epsilon$ is arbitrarily picked,  $$\lim_{n\rightarrow\infty} \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert =0 ~\Rightarrow~ \lim_{n\rightarrow\infty} \int_{0}^1 n\sqrt{x}f(nx)dx=0$$
+	In a summary, we have proved that, for all $\epsilon > 0$
+	$$
+	\exists D_\epsilon \ge 0 ~~s.t.~~\forall n\ge D_\epsilon,~~\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le \epsilon
+	$$
+	More precisely, $D_\epsilon= 4M^2N_{\epsilon/2}/\epsilon^2$. 
+	Above condition is equivalent to
+	 $$\lim_{n\rightarrow\infty} \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert =0 ~\Rightarrow~ \lim_{n\rightarrow\infty} \int_{0}^1 n\sqrt{x}f(nx)dx=0$$
 	
 	\item[10.] Observe that $\limsup_{n\rightarrow \infty} = \bigcap_{n=1}^\infty \bigcup_{m=n}^\infty A_m \subseteq \bigcup_{m=k}^\infty A_m$ for each fixed $k$.
 	Hence
