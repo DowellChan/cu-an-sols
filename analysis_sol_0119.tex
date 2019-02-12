@@ -1,4 +1,92 @@
+
 \begin{itemize}
+	\item[1.] Prove by contradiction. Suppose not. There exists $\epsilon > 0$ such that, for all $N>0$, $\exists n > N$ s.t. $\lVert x_n - x_0\rVert  \ge \epsilon$. Therefore, we can pick a subsequence $\{x'_{i}\}_i$ such that 
+	$$
+	\forall i\in \mathbb{N},~\lVert x'_i - x_0\rVert \ge \epsilon	
+	$$
+	By assumption, $\{x'_i\}_i$ contains a subsequence $\{x''_j\}_j$ converging to $x_0$. However, by construction, there is no element in $\{x''_j\}_j$ such that $\lVert x''_j -x_0\rVert < \epsilon$.
+	
+	\item[2.] 
+	$P([0,1],d)$ is not a complete metric space. Firstly, $d$ is essentially a metric which can be proved easily. However, $P([0,1],d)$ is not complete.
+	By Taylor's expansion, 
+	$$e^x = \sum_{n=0}^\infty \frac{x^n}{n!}$$ 
+	Note that $e^x$ is not a polynomial. Indeed, suppose $e^x = \sum_{n=0}^k a_nx^n$. Take $(k+1)-$th derivative of both sides, we have $e^x = 0$, which is impossible.  
+	
+	Let $f_m = \sum_{n=0}^m \frac{x^n}{n!}$. We will prove $f_m\rightarrow e^x$ w.r.t. $d$ as $m\rightarrow \infty$.
+	$$
+	d\left(e^x, f_m\right) = \int_{0}^1 \left\lvert e^x - f_m \right\rvert dx = \int_{0}^1 \left\lvert \sum_{n=m+1}^\infty \frac{x^n}{n!} \right\rvert dx = \sum_{n=m+1}^\infty \frac{1}{(n+1)!}
+	$$
+	Observe that
+	$$
+	\sum_{n=m+1}^\infty \frac{1}{(n+1)!} < \frac{1}{(m+1)!}+\frac{1}{m!} \sum_{n=m+1}^\infty \frac{1}{n(n+1)} = \frac{1}{(m+1)!}+\frac{1}{m!} \sum_{n=m+1}^\infty \left(\frac{1}{n} - \frac{1}{n+1}\right)
+	$$
+	Note that $$  \sum_{n=m+1}^\infty \left(\frac{1}{n} - \frac{1}{n+1}\right) = \frac{1}{m+1} ~\Rightarrow~\sum_{n=m+1}^\infty \frac{1}{(n+1)!} < \frac{2}{(m+1)!}$$
+	Hence, with $m\rightarrow \infty$, $d(e^x, f_m)\rightarrow 0$. To show $P([0,1], d)$ is not complete, we need to show sequence  $\{f_m\}_m$ is Cauchy. For $\epsilon >0$, there exist $N\ge 0$ such that $\forall m\ge N,~ d(e^x, f_m) < \epsilon/2$. 
+	By triangle inequality,
+	$$
+	\forall n,m \ge N,~~d\left(f_m, f_n\right) \le d\left(d_m, e^x\right) + d\left(e^x, d_n\right) <\epsilon
+	$$ 
+	
+	\item[3.] Prove by contradiction. Suppose $X$ is separable and let $Y$ be a dense countable subset of $X$. 
+	$$
+	A\subseteq X \subseteq \bigcup_{y\in Y} B\left(y, \frac{\epsilon}{3}\right)
+	$$  
+	We show that, for each $y\in Y$, $A\cap B\left(y, \epsilon/3\right)$ contains at most one element from $A$. Suppose $A\cap B(y,\epsilon/3)$ contains two distinct elements $a,b \in A$. Then $$d(a,b) \le d(a,y) + d(y,b) \le 2\epsilon/3 <\epsilon$$ This is impossible. Therefore, $A$ contains at most as many elements as $Y$. In other words, $A$ is countable. (Contradiction!)
+	
+	\item[4.] First, there exists a sequence $\{(a_n, b_n)\}_n$ such that $d(A,B) = \lim_{n\rightarrow\infty}d(a_n,b_n)$. Since $A$ is compact, there exists a convergent subsequence of $\{a_n\}_n$. Denote this subsequence as $\{a_{n,1}\}_n$ and let $a^*\in A$ be its limit point. Note that $\{b_{n,1}\}_n$ is a sequence in $B$ and $B$ is also compact. So there exists a convergent subsequence $\{b_{n,2}\}_n$ and we denote its limit point as $b^*\in B$. Then we will prove $d(A,B) = d(a^*, b^*)$.  
+	$$
+	d(A,B) = \lim_{n\rightarrow\infty} d(a_n, b_n) = \lim_{n\rightarrow\infty} d\left(a_{n,2}, b_{n,2} \right)
+	$$
+	For $\epsilon >0$, there exist $N\ge0$ such that
+	$$
+	\forall n\ge N,~~d(a_{n,2}, b_{n,2}) - d(A,B) < \epsilon
+	$$
+	Note that
+	$$
+	d(a^*,b^*)\le d(a^*, a_{n,2}) + d(a_{n,2},b_{n,2}) + d(b_{n,2},b^*)
+	$$
+	Combine above two inequalities to claim
+	$$
+	\forall n\ge  N, ~d(a^*,b^*)-d(A,B) < d(a^*, a_{n,2}) + d(b^*, b_{n,2})  +\epsilon
+	$$
+	Let $n\rightarrow \infty$, we conclude $ d(a^*,b^*)-d(A,B) <\epsilon$. 
+	Since $\epsilon$ can be arbitrarily small, $d(a^*,b^*)\le d(A,B)$. Recall that, by definition, $d(A,B)\le d(a^*,b^*) ~\Rightarrow~ d(A,B)=d(a^*,b^*)$.
+	
+	\item[5.] 
+	 By definition, $T$ is orthogonal $\Leftrightarrow \langle x, Ty\rangle = \langle Tx, y\rangle$ for all $x,y\in H$.
+	\begin{enumerate}[$\bullet$]
+		\item (a) $\rightarrow$ (b): for all $x\in H$, $\lVert Tx\rVert^2 = \langle Tx, Tx\rangle = \langle x, T^2x\rangle = \langle x, Tx\rangle \le \lVert x\rVert \lVert Tx\rVert$. Therefore, $\lVert Tx\rVert \le \lVert x\rVert ~\Rightarrow~ \lVert T\rVert \le 1$. Since $T$ is nonzero, there exists $x\in H$ such that $Tx\neq 0$. 
+		$$
+		\lVert T(Tx)\rVert = \lVert Tx\rVert ~\Rightarrow~ \lVert T\rVert \ge 1 
+		$$
+		Combine all results, we conclude $\lVert T\rVert = 1$.
+		
+		\item (b) $\rightarrow$ (c): We first show that $\ker(T)\subseteq T(H)^\perp$ by contradiction. 
+		Suppose not, there exists $x,y\in H$ such that $T(x)=0$ but $\langle x, Ty\rangle \neq 0$. Without loss of generality, we may assume $\operatorname{Re}\langle x, T(y)\rangle >0$. Otherwise, we replace $y$ by one of $\{-y, iy, -iy\}$. Then, for $\alpha > 0$,
+		$$
+		 \left\lVert \alpha x-Ty\right\rVert^2 = \alpha^2\lVert x\rVert^2 + \lVert Ty\rVert^2 -2\alpha\operatorname{Re}\langle x, T(y)\rangle:=f(\alpha)
+		$$
+		Let $\alpha^*: = \operatorname{Re}\langle x, Ty\rangle/(\lVert x\rVert^2)>0$. We have $f(\alpha^*) = \lVert Ty\rVert^2 - \alpha^* \operatorname{Re}\langle x,Ty\rangle < \lVert Ty\rVert^2$. However,
+		$$
+		 \lVert Ty\rVert^2  = \lVert T(\alpha^*x-Ty)\rVert^2 \le \lVert T\rVert^2\lVert \alpha^*x-Ty\rVert^2 = \lVert \alpha^*x-Ty\rVert^2 = f(\alpha^*)
+		$$
+		This contradiction leads to that $\ker(T)\subseteq T(H)^\perp$. Conversely, we need to show $T(H)^\perp\subseteq \ker(T)$. For $y\in T(H)^\perp$, we observe that $y-Ty\in \operatorname{ker}(T)\subseteq T(H)^\perp$, so
+		$$
+		\langle y-Ty, Ty\rangle =0 ~\Rightarrow~ \langle y, Ty\rangle - \langle Ty, Ty\rangle = 0
+		$$
+		By choice of $y$, we have $\langle y, Ty\rangle =0$. Hence, the right equation above essentially shows that $\langle Ty,Ty\rangle = 0~\Rightarrow~Ty=0~\Rightarrow~y\in \ker(T)$.
+		\item (c) $\rightarrow$ (a): For all $x,y\in H$, $x-Tx, y-Ty\in \operatorname{ker}(T)=(T(H))^\perp$. Then
+		$$
+		\langle x-Tx, y-Ty\rangle = \langle x, y-Ty\rangle + \langle Tx, y-Ty\rangle = \langle x, y-Ty\rangle = \langle x, y\rangle - \langle x, Ty\rangle
+		$$
+		On the other side,
+		$$
+		\langle x-Tx, y-Ty\rangle = \langle x-Tx, y\rangle -\langle x-Tx, Ty\rangle = \langle x-Tx, y\rangle = \langle x, y\rangle -\langle Tx, y\rangle
+		$$
+		After canceling $\langle x,y\rangle$, we derive $\langle x, Ty\rangle = \langle Tx, y\rangle$.
+	\end{enumerate}
+\iffalse
+% Walton's previous work for number 5
 \item Let $T : \calh \to \calh$ be bounded and linear and $T=T^2$. Prove the following are equivalent.
 	\begin{itemize}
 		\item[(i)] $\lip Tx,y\rip = \lip x,Ty\rip$
@@ -20,4 +108,89 @@ for any $\ep$ thus proving (i).
 
 
 \end{proof}
+\fi
+	
+	\item[6.] \begin{enumerate}[(a)]
+		\item Omitted.
+		\item Observe that
+		$$
+		\forall n\in \mathbb{N},~~\frac{e^{-x}}{1+(x/n)}\le e^{-x} \text{ on } (0,\infty)
+		$$
+		And $\int_{0}^\infty e^{-x} = 1$. By dominated convergence theorem,
+		$$
+		\lim_{n\rightarrow\infty} \int_{0}^\infty \frac{e^{-x}}{1+(x/n)} dx = \int_{0}^\infty \lim_{n\rightarrow\infty}\frac{e^{-x}}{1+(x/n)} dx = \int_{0}^\infty e^{-x} dx = 1
+		$$
+	\end{enumerate}
+	
+	\item[7.] Define $A_k = \{x\in E: f(x)\ge 1/k \}$ for each positive integer $k$. Since $f$ is measurable, so is $A_k$. Let $Z=\{x\in E: f(x)=0\}$. Follows from problem assumption, $m(Z)=0$. By sub-additivity of measure, together with fact that $E_n\backslash Z=\cup_{k=1}^\infty (E_n\cap A_k)$.
+	$$
+	\forall n\in\mathbb{N},~~m\left(E_n\right) = m\left(E_n\backslash Z\right) = m\left(\bigcup_{k=1}^\infty (E_n\cap A_k)\right)\le m(E) < \infty
+	$$
+	For $\epsilon >0$, there exists $N\in \mathbb{N}$ such that $$
+	m(E_n)= m\left(\bigcup_{k=1}^\infty (E_n\cap A_k)\right) \le m\left(\bigcup_{k=1}^N (E_n\cap A_k)\right) + \epsilon\le \sum_{k=1}^N m(E_n\cap A_k) +\epsilon
+	$$
+	We will prove that, for each fixed $k$, $\lim_{n\rightarrow\infty} m(E_n\cap A_k)=0$.
+	$$
+	\int_{E_n} f(x)dx = \int_{E_n\backslash Z} f(x)dx\ge \int_{E_n\cap A_k}f(x)dx \ge \frac{m(E_n\cap A_k)}{k}
+	$$
+	Let $n\rightarrow \infty$, the left hand side goes to $0$ and hence $\lim_{n\rightarrow\infty} m(E_n\cap A_k)=0$. As a consequence,
+	$$
+	\lim_{n\rightarrow\infty} \sum_{k=1}^N m(E_n\cap A_k) = \sum_{k=1}^N \lim_{n\rightarrow\infty} m(E_n\cap A_k) = 0 ~\Rightarrow~ \limsup_{n\rightarrow\infty} m(E_n) \le \epsilon
+	$$
+	As $\epsilon$ can be arbitrarily small, $\limsup_{n\rightarrow\infty} m(E_n) = 0$. Observe that
+	$$
+	0\le \liminf_{n\rightarrow \infty}m(E_n) \le \limsup_{n\rightarrow \infty} m(E_n) =0 ~\Rightarrow~ \lim_{n\rightarrow\infty} m(E_n)\text{ exists and } \lim_{n\rightarrow\infty} m(E_n)=0
+	$$
+	\item[8.] By Cauchy inequality, we have
+	$$
+	\left\lvert L \right\rvert := \left\lvert\int_{0}^1  \left(f(x) -\cos(2\pi x)\right)\left(f(x) -\sin(2\pi x)\right) dx \right\rvert \le \sqrt{L_1L_2} = \frac{1}{9}
+	$$
+	where $L_1 =  \int_{0}^1\left\lvert f(x) -\cos(2\pi x) \right\rvert^2 dx $ and $L_2 =\int_{0}^1\left\lvert f(x) -\sin(2\pi x) \right\rvert^2 dx $. Since $L_1 = L_2 = 1/9$, we have
+	$$
+	\int_{0}^1 f(x)\cos(2\pi x) dx = \int_{0}^1 f(x)\sin(2\pi x) dx 
+	$$
+	This equality allows us to compute $L$ directly.
+	$$
+	\begin{aligned}
+	L &= \int_{0}^1 \left( f^2(x)+f(x)\cos(2\pi x) +f(x)\sin(2\pi x)+ \cos(2\pi x)\sin(2\pi x) \right) dx\\
+	&= \int_{0}^1\left(f^2(x) + 2f(x)\cos(2\pi x)\right) = L_1 - \int_{0}^1 \cos^2(2\pi x)dx = L_1 - \frac{1}{2}\\
+	&= -\frac{7}{18}
+	\end{aligned}
+	$$
+	However, by the inequality given at the beginning, $\lvert L\rvert \le 1/9$. This contradiction leads to that there is no such function $f(x)$ satisfying $L_1=L_2 = 1/9$.
+	
+	\item[9.] By substitution $y= \sqrt{x}$, we convert integral to following form
+	$$
+	\int_{0}^1 n\sqrt{x}f(nx)dx = \int_{0}^1 ny^2f(ny^2)dy
+	$$ 
+	Since $\lvert xf(x)\rvert \rightarrow 0$ as $x\rightarrow \infty$. For $\epsilon > 0$, there exists a number $N_\epsilon >0$ such that $\forall x\ge N_\epsilon,~\lvert xf(x)\rvert<\epsilon$. Now, for each fixed $n \ge N_\epsilon$, we construct a set $A_n = \{y\in [0,1]:~ny^2\ge N_\epsilon \} = \left[\sqrt{N_\epsilon/n}, 1\right]$ and $B_n = [0,1]\backslash A_n = \left[0, \sqrt{N_\epsilon/n}\right]$. Then
+	$$
+	\begin{aligned}
+		\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert &= \left\lvert\int_{\sqrt{N_\epsilon/n}}^1 ny^2f(ny^2)dy+ \int_{0}^{\sqrt{N_\epsilon/n}} ny^2f(ny^2)dy\right\rvert \\&\le \epsilon \left(1-\sqrt{N_\epsilon/n}\right) + M\sqrt{N_\epsilon/n} \\
+		&\le \epsilon + M\sqrt{N_\epsilon/n}
+	\end{aligned}
+	$$
+	where $M$ is the upper bound for $f(x)$ on $[0,1]$. We conclude that 
+	$$
+	\forall n\ge M^2N_\epsilon/\epsilon^2, ~~ \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le  \epsilon +  M\sqrt{N_\epsilon/n}\le 2\epsilon
+	$$
+	In a summary, we have proved that, for all $\epsilon > 0$
+	$$
+	\exists D_\epsilon \ge 0 ~~s.t.~~\forall n\ge D_\epsilon,~~\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le \epsilon
+	$$
+	More precisely, $D_\epsilon= 4M^2N_{\epsilon/2}/\epsilon^2$. 
+	Above condition is equivalent to
+	 $$\lim_{n\rightarrow\infty} \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert =0 ~\Rightarrow~ \lim_{n\rightarrow\infty} \int_{0}^1 n\sqrt{x}f(nx)dx=0$$
+	
+	\item[10.] Observe that $\limsup_{n\rightarrow \infty} = \bigcap_{n=1}^\infty \bigcup_{m=n}^\infty A_m \subseteq \bigcup_{m=k}^\infty A_m$ for each fixed $k$.
+	Hence
+	$$
+	\forall k\ge 1,~~\mu\left(\limsup_{n\rightarrow \infty}A_n\right)\le \mu\left(\bigcup_{m=k}^\infty A_m\right) \le \sum_{m=k}^\infty \mu\left(A_m\right)
+	$$
+	Since $\sum_{n=1}^\infty \mu\left(A_n\right) < \infty$, for $\epsilon >0$, there exists $N\ge 0$ such that
+	$$
+	\forall m\ge N,~~\sum_{n=m}^\infty \mu\left(A_n\right) < \epsilon ~\Rightarrow~ \mu\left(\limsup_{n\rightarrow \infty}A_n\right)<\epsilon
+	$$
+	As $\epsilon$ can be arbitrarily small, $\mu\left(\limsup_{n\rightarrow \infty}A_n\right) = 0$.
 \end{itemize}
+>>>>>>> 4e1060c0015f84836fddd23a958d01acd385dd3b
