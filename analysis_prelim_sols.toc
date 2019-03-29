@@ -14,4 +14,5 @@
 \contentsline {section}{Summer 2017}{38}{section*.20}
 \contentsline {section}{Winter 2018 - Yiran Zhu}{40}{section*.21}
 \contentsline {section}{Summer 2018 - Yiran Zhu}{43}{section*.22}
-\contentsline {section}{Winter 2019 - Yiran Zhu}{49}{section*.23}
+\contentsline {section}{Winter 2019}{49}{section*.23}
+\contentsline {section}{Winter 2019 - Yiran Zhu}{50}{section*.24}

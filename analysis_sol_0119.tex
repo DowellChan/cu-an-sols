@@ -85,6 +85,30 @@
 		$$
 		After canceling $\langle x,y\rangle$, we derive $\langle x, Ty\rangle = \langle Tx, y\rangle$.
 	\end{enumerate}
+\iffalse
+% Walton's previous work for number 5
+\item Let $T : \calh \to \calh$ be bounded and linear and $T=T^2$. Prove the following are equivalent.
+	\begin{itemize}
+		\item[(i)] $\lip Tx,y\rip = \lip x,Ty\rip$
+		\item[(ii)] $\|T\|=1$
+		\item[(iii)] $\ker(T)=(T(\calh))^\perp$
+	\end{itemize}
+\begin{proof}
+(iii) $\implies$ (i). Let $E = \overline{T(\calh)}$ and let $P$ be the projection onto $E^\perp = \ker(T)$.
+	\[ \lip x,Ty \rip = \lip Px + (I-P)x,Ty \rip = \lip (I-P)x,Ty \rip \]
+Now, since $(I-P)x \in E$, for $\ep>0$, there exists $w$ such that $\|Tw-(I-P)x\| \le \ep$. Moreover,
+	\[ \|Tw - Tx\| = \|T(Tw-(I-P)x)\| \le \|T\| \ep \]
+so
+	\[ \lip x,Ty \rip = \lip Tx,Ty \rip + \lip Tw-Tx,Ty \rip + \lip (I-P)x-Tw,Ty \rip. \]
+Similarly, there exists $z$ such that $\|Tz-(I-P)y\| \le \ep$ and $\|Tz-Ty\| \le \|T\|\ep$. Then,
+	\[ \lip Tx,y \rip = \lip Tx,Ty \rip + \lip Tx,Tz-Ty \rip + \lip Tx,(I-P)y-Tz \rip. \]
+Finally,
+	\[ |\lip Tx,y \rip - \lip x,Ty\rip| \le (\|Tx\| + \|Ty\|)(\|T\|+1)\ep \]
+for any $\ep$ thus proving (i).
+
+
+\end{proof}
+\fi
 	
 	\item[6.] \begin{enumerate}[(a)]
 		\item Omitted.
@@ -163,3 +187,4 @@
 	$$
 	As $\epsilon$ can be arbitrarily small, $\mu\left(\limsup_{n\rightarrow \infty}A_n\right) = 0$.
 \end{itemize}
+>>>>>>> 4e1060c0015f84836fddd23a958d01acd385dd3b
