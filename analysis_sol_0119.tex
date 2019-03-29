@@ -137,27 +137,21 @@
 	
 	\item[9.] By substitution $y= \sqrt{x}$, we convert integral to following form
 	$$
-	\int_{0}^1 n\sqrt{x}f(nx)dx = \int_{0}^1 ny^2f(ny^2)dy
+	\int_{0}^1 n\sqrt{x}f(nx)dx = 2\int_{0}^1 ny^2f(ny^2)dy
 	$$ 
-	Since $\lvert xf(x)\rvert \rightarrow 0$ as $x\rightarrow \infty$. For $\epsilon > 0$, there exists a number $N_\epsilon >0$ such that $\forall x\ge N_\epsilon,~\lvert xf(x)\rvert<\epsilon$. Now, for each fixed $n \ge N_\epsilon$, we construct a set $A_n = \{y\in [0,1]:~ny^2\ge N_\epsilon \} = \left[\sqrt{N_\epsilon/n}, 1\right]$ and $B_n = [0,1]\backslash A_n = \left[0, \sqrt{N_\epsilon/n}\right]$. Then
-	$$
-	\begin{aligned}
-		\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert &= \left\lvert\int_{\sqrt{N_\epsilon/n}}^1 ny^2f(ny^2)dy+ \int_{0}^{\sqrt{N_\epsilon/n}} ny^2f(ny^2)dy\right\rvert \\&\le \epsilon \left(1-\sqrt{N_\epsilon/n}\right) + M\sqrt{N_\epsilon/n} \\
-		&\le \epsilon + M\sqrt{N_\epsilon/n}
-	\end{aligned}
-	$$
-	where $M$ is the upper bound for $f(x)$ on $[0,1]$. We conclude that 
-	$$
-	\forall n\ge M^2N_\epsilon/\epsilon^2, ~~ \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le  \epsilon +  M\sqrt{N_\epsilon/n}\le 2\epsilon
-	$$
-	In a summary, we have proved that, for all $\epsilon > 0$
-	$$
-	\exists D_\epsilon \ge 0 ~~s.t.~~\forall n\ge D_\epsilon,~~\left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert \le \epsilon
-	$$
-	More precisely, $D_\epsilon= 4M^2N_{\epsilon/2}/\epsilon^2$. 
-	Above condition is equivalent to
-	 $$\lim_{n\rightarrow\infty} \left\lvert\int_{0}^1 ny^2f(ny^2)dy\right\rvert =0 ~\Rightarrow~ \lim_{n\rightarrow\infty} \int_{0}^1 n\sqrt{x}f(nx)dx=0$$
-	
+	Since $\lvert xf(x)\rvert \rightarrow 0$ as $x\rightarrow \infty$, there exists $\alpha >0$ such that $\forall x\ge \alpha,~\lvert xf(x)\rvert<1$. Suppose $M$ is an upper bound for $f(x)$ and then we have
+	\[
+	\forall x\in (0,\infty),~~|xf(x)| < \alpha M+1
+	\] 
+	It follows that
+	\[
+	\forall n\in\mathbb{Z}_+,~\forall y\in (0,1),~\left\lvert ny^2f(ny^2)\right\rvert < \alpha M+1
+	\]
+	Observe that $$\int_{0}^1(\alpha M+1)dy = \alpha M+1 < \infty \text{ and }\forall y\in (0,1),~\lim_{n\rightarrow\infty}ny^2f(ny^2) = 0$$ By Dominated Convergence Theorem, 
+	\[
+	\lim_{n\rightarrow\infty}\int_{0}^1 ny^2f(ny^2)dy = \int_{0}^1 \lim_{n\rightarrow\infty}ny^2f(ny^2)dy = 0
+	\]
+	Consequently, $\int_{0}^1n\sqrt{x}f(nx)dx = 0$.
 	\item[10.] Observe that $\limsup_{n\rightarrow \infty} = \bigcap_{n=1}^\infty \bigcup_{m=n}^\infty A_m \subseteq \bigcup_{m=k}^\infty A_m$ for each fixed $k$.
 	Hence
 	$$
