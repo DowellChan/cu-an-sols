@@ -1,5 +1,19 @@
 \begin{itemize}
 
+\item[2.]
+	\begin{itemize}
+		\item[(a)] Suppose $f_n(x) = f(x^n)$ converges uniformly to some function $g$. Since each $f_n$ is continuous, $g$ must also be continuous. However, for each $x \in [0,1)$, $f_n(x) \to f(0)$. Moreover, $f_n(1) = f(1)$. So,
+	\[ g(x) = \left\{ \begin{array}{cc} f(0) & x <1 \\ f(1) & x=1 \end{array} \right. \]
+which is not continuous.
+		\item[(b)] Since $f$ is continuous, there exists $C>0$ such that $f(x) \le C$ for all $x \in [0,1]$. The constant function $h(x)=C$ is integrable on $(0,1)$ so by Lebesgue Dominated Convergence Theorem,
+		\[ \lim_{n \to \infty} \int_0^1 f_n(x) \, dx = \int_0^1 \lim_{n \to \infty} f_n(x) \, dx = \int_0^1 g(x) \, dx = f(0). \]
+	\end{itemize}	
+
+\item[3.]
+	\[ \|Ta\|_1 = \sum_{k=1}^\infty |a_kb_k| \le \|a\|_\infty \|b\|_1 \]
+Moreover, $\|T\| = \|b\|_1$ which can be seen from applying $T$ to the constant sequence $\mathbf{1} = (1,1,1,\ldots)$. 
+	\[ \|T \mathbf{1} \|_1 = \sum_{k=1}^\infty |b_k| = \|b\|_1. \]
+
 \item[5.] Hao Chen
 \begin{proof}
 To show the orthonormal set $\{f_n\}$ is an orthonormal basis we will show that $\{f_n\}^\perp = \{0\}$. If not, then there exists $x \ne 0$ such that $\lip x,f_n\rip = 0$ for all $n$. However, by Parseval's identity and the Cauchy-Schwarz inequality,

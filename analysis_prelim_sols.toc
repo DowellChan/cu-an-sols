@@ -12,7 +12,7 @@
 \contentsline {section}{Summer 2016}{29}{section*.18}
 \contentsline {section}{Winter 2017}{33}{section*.19}
 \contentsline {section}{Summer 2017}{38}{section*.20}
-\contentsline {section}{Winter 2018 - Yiran Zhu}{40}{section*.21}
-\contentsline {section}{Summer 2018 - Yiran Zhu}{43}{section*.22}
-\contentsline {section}{Winter 2019}{49}{section*.23}
-\contentsline {section}{Winter 2019 - Yiran Zhu}{50}{section*.24}
+\contentsline {section}{Winter 2018 - Yiran Zhu}{41}{section*.21}
+\contentsline {section}{Summer 2018 - Yiran Zhu}{44}{section*.22}
+\contentsline {section}{Winter 2019}{50}{section*.23}
+\contentsline {section}{Winter 2019 - Yiran Zhu}{51}{section*.24}
