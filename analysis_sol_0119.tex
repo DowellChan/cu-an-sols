@@ -85,30 +85,39 @@
 		$$
 		After canceling $\langle x,y\rangle$, we derive $\langle x, Ty\rangle = \langle Tx, y\rangle$.
 	\end{enumerate}
-\iffalse
 % Walton's previous work for number 5
-\item Let $T : \calh \to \calh$ be bounded and linear and $T=T^2$. Prove the following are equivalent.
+\iffalse Let $T : \calh \to \calh$ be bounded and linear and $T=T^2$. Prove the following are equivalent.
 	\begin{itemize}
-		\item[(i)] $\lip Tx,y\rip = \lip x,Ty\rip$
-		\item[(ii)] $\|T\|=1$
-		\item[(iii)] $\ker(T)=(T(\calh))^\perp$
+		\item[(a)] $\lip Tx,y\rip = \lip x,Ty\rip$
+		\item[(b)] $\|T\|=1$
+		\item[(c)] $\ker(T)=(T(\calh))^\perp$
 	\end{itemize}
-\begin{proof}
-(iii) $\implies$ (i). Let $E = \overline{T(\calh)}$ and let $P$ be the projection onto $E^\perp = \ker(T)$.
-	\[ \lip x,Ty \rip = \lip Px + (I-P)x,Ty \rip = \lip (I-P)x,Ty \rip \]
-Now, since $(I-P)x \in E$, for $\ep>0$, there exists $w$ such that $\|Tw-(I-P)x\| \le \ep$. Moreover,
-	\[ \|Tw - Tx\| = \|T(Tw-(I-P)x)\| \le \|T\| \ep \]
-so
-	\[ \lip x,Ty \rip = \lip Tx,Ty \rip + \lip Tw-Tx,Ty \rip + \lip (I-P)x-Tw,Ty \rip. \]
-Similarly, there exists $z$ such that $\|Tz-(I-P)y\| \le \ep$ and $\|Tz-Ty\| \le \|T\|\ep$. Then,
-	\[ \lip Tx,y \rip = \lip Tx,Ty \rip + \lip Tx,Tz-Ty \rip + \lip Tx,(I-P)y-Tz \rip. \]
-Finally,
-	\[ |\lip Tx,y \rip - \lip x,Ty\rip| \le (\|Tx\| + \|Ty\|)(\|T\|+1)\ep \]
-for any $\ep$ thus proving (i).
+\fi
+\begin{proof}[Alternative proof]
+(c) $\implies$ (a). First we show the range of $T$ is closed. Let $Tx_n \to y$. We need to show $y$ is in the ranger. Since $T$ is bounded, $T(Tx_n) \to Ty$. But since $T^2=T$, $Tx_n \to Ty$ and by uniqueness of limits $Ty=y$ so $y$ is in the range. Therefore
+	\[ H = \Ran(T)+\Ran(T)^\perp = \Ran(T)+\ker(T) \]
+so every vector has a unique decomposition in to $\Ran(T)$ and $\ker(T)$ and the subspaces are orthogonal.
 
+(a) $\implies$ (b). Since $T^2=T$, $\|T\| = \|T^2\| \le \|T\|^2$ so $\|T\| \ge 1$. However,
+	\[ \|Tx\|^2 + \|(I-T)x\|^2 = \|x\|^2 \]
+by (i) so $\|Tx\|^2 \le \|x\|^2$ and $\|T\|\le 1$.
+
+(b) $\implies$ (c): We first show that $\ker(T)\subseteq T(H)^\perp$ by contradiction. 
+		Suppose not, there exists $x,y\in H$ such that $T(x)=0$ but $\langle x, Ty\rangle \neq 0$. Without loss of generality, we may assume $\operatorname{Re}\langle x, T(y)\rangle >0$. Otherwise, we replace $y$ by one of $\{-y, iy, -iy\}$. Then, for $\alpha > 0$,
+		$$
+		 \left\lVert \alpha x-Ty\right\rVert^2 = \alpha^2\lVert x\rVert^2 + \lVert Ty\rVert^2 -2\alpha\operatorname{Re}\langle x, T(y)\rangle:=f(\alpha)
+		$$
+		Let $\alpha^*: = \operatorname{Re}\langle x, Ty\rangle/(\lVert x\rVert^2)>0$. We have $f(\alpha^*) = \lVert Ty\rVert^2 - \alpha^* \operatorname{Re}\langle x,Ty\rangle < \lVert Ty\rVert^2$. However,
+		$$
+		 \lVert Ty\rVert^2  = \lVert T(\alpha^*x-Ty)\rVert^2 \le \lVert T\rVert^2\lVert \alpha^*x-Ty\rVert^2 = \lVert \alpha^*x-Ty\rVert^2 = f(\alpha^*)
+		$$
+		This contradiction leads to that $\ker(T)\subseteq T(H)^\perp$. Conversely, we need to show $T(H)^\perp\subseteq \ker(T)$. For $y\in T(H)^\perp$, we observe that $y-Ty\in \operatorname{ker}(T)\subseteq T(H)^\perp$, so
+		$$
+		\langle y-Ty, Ty\rangle =0 ~\Rightarrow~ \langle y, Ty\rangle - \langle Ty, Ty\rangle = 0
+		$$
+		By choice of $y$, we have $\langle y, Ty\rangle =0$. Hence, the right equation above essentially shows that $\langle Ty,Ty\rangle = 0~\Rightarrow~Ty=0~\Rightarrow~y\in \ker(T)$.
 
 \end{proof}
-\fi
 	
 	\item[6.] \begin{enumerate}[(a)]
 		\item Omitted.
