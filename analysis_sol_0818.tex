@@ -192,6 +192,18 @@
 			\forall n\ge N,~~A_n:=\{x\in X \mid \lvert f_n(x) - f(x)\rvert \ge \delta\} \subseteq E ~\Rightarrow~ \mu(A_n) < \epsilon
 			$$
 			Therefore, $f_n$ converges to $f$ in measure.
+
+
+			(Alternate Solution: Walton)
+			Let $\ep >0$. Set $E_n = \{|f_n-f| < \ep\}$. Since $f_n \to f$ pointwise a.e., letting $F$ be the set where $f_n \to f$, we have
+				\[ F \subset \bigcup_{N=1}^\infty \bigcap_{n=N}^\infty E_n = \liminf E_n. \]
+			Therefore,
+				\[ F^c \supset \limsup E_n^c\]
+			and
+				\begin{equation}\label{eq:81} 0 = \mu(F^c) \ge \mu(\limsup E_m) \ge \limsup \mu(E_n) \ge 0 \end{equation}
+			which implies $\lim_{n \to \infty} \{ |f_n-f| > \ep\} =0$ for any $\ep>0$ so $f_n\to f$ in measure. In the second inequality in (\ref{eq:81}) we have used the fact that the measure space is finite.
+
+			
 			
 			\item Suppose $f_n$ converges to $f$ in measure: There exists a subsequence $\{f_{n_k}\}_k$ converges to $f$ pointwise a.e.. Let $E$ be the zero-measure set that $\{f_{n_k}\}_k$ does not converge to $f$. Then
 			fix $x\in X\backslash E$, for each $\epsilon > 0$, there exists $N\ge 1$ such that 
