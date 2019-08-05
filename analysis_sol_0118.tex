@@ -22,8 +22,15 @@
 			Therefore $f$ is continuous at $x$. Since $x$ can be a arbitrary number in $(0,1)$, $f \in \mathcal{C}(0,1)$.
 		\end{proof}
 		
-		\item[2.] Easy to show. $\lVert f\rVert_\infty \le \lVert f-f_n\rVert_\infty + \lVert f_n\rVert_\infty \le \epsilon + M < \infty$.
-		
+		\item[2.] %Easy to show. $\lVert f\rVert_\infty \le \lVert f-f_n\rVert_\infty + \lVert f_n\rVert_\infty \le \epsilon + M < \infty$.
+		Let $\{f_n\}$ be a Cauchy sequence in $B(0,1)$. Then, for each $t \in (0,1)$, $\{f_n(t)\}$ is a Cauchy sequence in $\bbr$. Thus, since $\bbr$ is complete, this sequence converges for each $t$. Define $f(t) = \lim_{n \to \infty} f_n(t)$. We claim that $\|f_n-f\|_\infty \to 0$. Indeed, for $\ep >0$, there exists $N$ such that $\|f_n-f_k\|_\infty < \ep /2$ for all $n,k \ge N$. Moreover, for each $t \in 
+(0,1)$, there exists $M_t \ge N$ such that $|f(t)-f_{M_t}(t)| < \ep/2$. Thus, for each $t \in (0,1)$,
+			\[ |f_n(t)-f(t)| \le \|f_n-f_{M_t}\|_\infty + |f_{M_t}(t)-f(t)| < \ep \]
+		for all $n \ge N$. Thus,
+			\[ \|f_n-f\|_\infty = \sup_{t \in (0,1)} |f_n(t)-f(t)| < \ep. \]
+		Therefore $\|f_n-f\|_\infty \to 0$. It only remains to show that $f \in B(0,1)$. This follows from the triangle inequality: There exists $K>0$ such that $\|f_K-f\|_\infty < 1$. So,
+			\[ \|f\|_\infty \le \|f-f_K\|_\infty + \|f_K\|_\infty < \infty \]
+		which shows $f$ is bounded.
 		\item[3.] If $x\in Y^\perp$, then $\lVert x-y\rVert^2 = \lVert x\rVert^2 +  \lVert y\rVert^2 \ge \lVert x\rVert^2$. Conversely, since $Y$ is a closed subspace, $H= Y\oplus Y^\perp$. There exists $x' \in Y$ and $x^\perp \in Y^\perp$ such that $x = x'+x^\perp$. Then 
 		$$
 		\lVert x^\perp \rVert^2=\lVert x - x'\rVert^2 = \lVert x\rVert^2 = \lVert  x'+x^\perp\rVert^2 =  \lVert x'\rVert^2+\lVert x^\perp\rVert^2
