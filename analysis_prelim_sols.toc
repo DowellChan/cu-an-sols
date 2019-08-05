@@ -12,6 +12,6 @@
 \contentsline {section}{Summer 2016}{29}{section*.18}
 \contentsline {section}{Winter 2017}{33}{section*.19}
 \contentsline {section}{Summer 2017}{38}{section*.20}
-\contentsline {section}{Winter 2018 - Yiran Zhu}{41}{section*.21}
-\contentsline {section}{Summer 2018 - Yiran Zhu}{45}{section*.22}
-\contentsline {section}{Winter 2019 - Yiran Zhu}{52}{section*.23}
+\contentsline {section}{Winter 2018}{41}{section*.21}
+\contentsline {section}{Summer 2018}{45}{section*.22}
+\contentsline {section}{Winter 2019}{52}{section*.23}
