@@ -15,3 +15,4 @@
 \contentsline {section}{Winter 2018}{41}{section*.21}
 \contentsline {section}{Summer 2018}{45}{section*.22}
 \contentsline {section}{Winter 2019}{52}{section*.23}
+\contentsline {section}{Summer 2019}{57}{section*.24}
